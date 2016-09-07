@@ -1,0 +1,38 @@
+﻿# entity names
+entity.golems_metal.golem_adamantine.name=Adamantine Golem
+entity.golems_metal.golem_aquarium.name=Aquarium Golem
+entity.golems_metal.golem_brass.name=Brass Golem
+entity.golems_metal.golem_bronze.name=Bronze Golem
+entity.golems_metal.golem_coldiron.name=Cold Iron Golem
+entity.golems_metal.golem_copper.name=Copper Golem
+entity.golems_metal.golem_cupronickel.name=Cupronickel Golem
+entity.golems_metal.golem_electrum.name=Electrum Golem
+entity.golems_metal.golem_invar.name=Invar Golem
+entity.golems_metal.golem_lead.name=Lead Golem
+entity.golems_metal.golem_mithril.name=Mithril Golem
+entity.golems_metal.golem_nickel.name=Nickel Golem
+entity.golems_metal.golem_platinum.name=Platinum Golem
+entity.golems_metal.golem_silver.name=Silver Golem
+entity.golems_metal.golem_starsteel.name=Star-Steel Golem
+entity.golems_metal.golem_steel.name=Steel Golem
+entity.golems_metal.golem_tin.name=Tin Golem
+entity.golems_metal.golem_zinc.name=Zinc Golem
+
+# tooltips
+tooltip.basemetals=Base Metals
+tooltip.all_base_metals=All base metal blocks
+
+# WAILA and TOP tips
+entitytip.damage_resist=Damage resistance
+entitytip.extra_damage=Powerful against %s creatures
+entitytip.undead=undead
+entitytip.aquatic=aquatic
+entitytip.tough=tough
+entitytip.fiery=fiery
+entitytip.magic_immunity=Immune to magic
+entitytip.fast=Fast!
+entitytip.heals=Slowly heals
+
+#Extra Golems fix
+entitytip.tile.stonebrick.name=Cobblestone
+entitytip.is_fireproof=Fireproof
