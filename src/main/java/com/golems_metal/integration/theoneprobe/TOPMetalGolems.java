@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.golems.entity.GolemBase;
 import com.golems.integration.ModIds;
-import com.golems.main.ExtraGolems;
 import com.golems_metal.init.MetalGolems;
 import com.golems_metal.integration.MetalGolemDescriptionManager;
 import com.google.common.base.Function;
