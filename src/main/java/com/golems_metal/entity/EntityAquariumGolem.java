@@ -1,5 +1,6 @@
 package com.golems_metal.entity;
 
+import com.golems.entity.GolemBase;
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
 
@@ -35,7 +36,7 @@ public class EntityAquariumGolem extends MetalGolemBase2
 			if(MetalConfig.AQUARIUM.getBoolean(DAMAGE_WATER) && entity instanceof EntityWaterMob)
 			{
 				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
-				entity.attackEntityFrom(DamageSource.generic, damage);
+				entity.attackEntityFrom(DamageSource.GENERIC, damage);
 			}
 			return true;
 		}
@@ -45,7 +46,7 @@ public class EntityAquariumGolem extends MetalGolemBase2
 	@Override
 	protected ResourceLocation applyTexture() 
 	{
-		return this.makeGolemTexture(MetalGolems.MODID, "aquarium");
+		return GolemBase.makeGolemTexture(MetalGolems.MODID, "aquarium");
 	}
 
 	@Override

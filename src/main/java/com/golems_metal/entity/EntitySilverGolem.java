@@ -1,5 +1,6 @@
 package com.golems_metal.entity;
 
+import com.golems.entity.GolemBase;
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
 
@@ -40,6 +41,6 @@ public class EntitySilverGolem extends MetalGolemBase2
 	@Override
 	protected ResourceLocation applyTexture() 
 	{
-		return this.makeGolemTexture(MetalGolems.MODID, "silver");
+		return GolemBase.makeGolemTexture(MetalGolems.MODID, "silver");
 	}
 }

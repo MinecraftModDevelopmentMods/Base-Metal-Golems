@@ -2,6 +2,7 @@ package com.golems_metal.entity;
 
 import java.util.List;
 
+import com.golems.entity.GolemBase;
 import com.golems.entity.GolemLightProvider;
 import com.golems.util.WeightedItem;
 import com.golems_metal.init.MetalConfig;
@@ -69,7 +70,7 @@ public class EntityStarSteelGolem extends GolemLightProvider
 	@Override
 	protected ResourceLocation applyTexture() 
 	{
-		return this.makeGolemTexture(MetalGolems.MODID, "starsteel");
+		return GolemBase.makeGolemTexture(MetalGolems.MODID, "starsteel");
 	}
 
 	@Override

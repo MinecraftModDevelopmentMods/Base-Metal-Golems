@@ -33,7 +33,7 @@ public class EntityColdIronGolem extends MetalGolemBase
 			if(MetalConfig.COLDIRON.getBoolean(DAMAGE_FIREPROOF) && (entity.isBurning() || entity.isImmuneToFire()))
 			{
 				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
-				entity.attackEntityFrom(DamageSource.generic, damage);
+				entity.attackEntityFrom(DamageSource.GENERIC, damage);
 			}
 			return true;
 		}

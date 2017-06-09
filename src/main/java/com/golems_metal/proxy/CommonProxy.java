@@ -21,6 +21,8 @@ import com.golems_metal.entity.EntityZincGolem;
 import com.golems_metal.events.BuildEventHandler;
 import com.golems_metal.init.MetalGolems;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
@@ -57,8 +59,8 @@ public class CommonProxy
 	}
 	
 	/** registers the entity **/
-	protected void register(Class entityClass, String name)
+	protected void register(Class<? extends Entity> entityClass, String name)
 	{		
-		EntityRegistry.registerModEntity(entityClass, name, ++entityCount, MetalGolems.instance, 48, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(name), entityClass, name, ++entityCount, MetalGolems.instance, 48, 3, true);
 	}
 }

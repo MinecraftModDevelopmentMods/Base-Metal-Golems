@@ -1,5 +1,6 @@
 package com.golems_metal.entity;
 
+import com.golems.entity.GolemBase;
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
 
@@ -41,6 +42,6 @@ public class EntityElectrumGolem extends MetalGolemBase2
 	@Override
 	protected ResourceLocation applyTexture() 
 	{
-		return this.makeGolemTexture(MetalGolems.MODID, "electrum");
+		return GolemBase.makeGolemTexture(MetalGolems.MODID, "electrum");
 	}
 }

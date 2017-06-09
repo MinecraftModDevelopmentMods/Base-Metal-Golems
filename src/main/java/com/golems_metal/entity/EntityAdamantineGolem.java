@@ -36,7 +36,7 @@ public class EntityAdamantineGolem extends MetalGolemBase
 				double maxHealth = ((EntityLivingBase)entity).getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
 				if(MetalConfig.ADAMANTINE.getBoolean(DAMAGE_TOUGH) && maxHealth >= 10)
 				{
-					entity.attackEntityFrom(DamageSource.generic, 4.0F);
+					entity.attackEntityFrom(DamageSource.GENERIC, 4.0F);
 				}
 			}
 			return true;
