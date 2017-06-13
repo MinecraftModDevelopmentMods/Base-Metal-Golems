@@ -21,6 +21,7 @@ public class EntityStarSteelGolem extends GolemLightProvider
 {
 	public static final String ALLOW_HEALING = "Allow Special: Random Healing";
 	
+	@SuppressWarnings("deprecation")
 	public EntityStarSteelGolem(World world) 
 	{
 		super(world, MetalConfig.STARSTEEL.getBaseAttack(), cyano.basemetals.init.Blocks.starsteel_block, EnumLightLevel.HALF);
