@@ -27,7 +27,7 @@ plugins {
 */
 version = "6.02.2"
 group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "BaseMetalGolems[1.10.2]"
+archivesBaseName = "BaseMetalGolems[1.11.2]"
 
 minecraft {
     version = "1.11.2-13.20.0.2228"
@@ -44,13 +44,15 @@ repositories {
 	maven { url = "http://mobiusstrip.eu/maven" }
 	maven { url = "http://dvs1.progwml6.com/files/maven" }
 	maven { url = "http://chickenbones.net/maven/" }
+    maven { url = 'https://repo.spongepowered.org/maven/' }
+    maven { url = "http://maven.covers1624.net" }
 }
 
 dependencies {
     compile "com.golems:ExtraGolems:1.10.2-6.02:deobf"
-    compile "cyano:BaseMetals:1.10.2-2.4.0:deobf"
-	provided 'mcp.mobius.waila:Waila:1.7.0-B3_1.9.4:dev'
+	provided 'mcp.mobius.waila:Waila:1.7.1_1.11.2:dev'
 	provided 'mcjty.theoneprobe:TheOneProbe:1.1x-1.4.0-50'
+    compile "com.mcmoddev:BaseMetals:1.11.2-2.5.0-beta+:deobf"
 }
 
 processResources {
