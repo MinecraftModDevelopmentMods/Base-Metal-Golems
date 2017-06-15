@@ -14,7 +14,7 @@ public class EntityLeadGolem extends MetalGolemBase
 {
 	public EntityLeadGolem(World world) 
 	{
-		super(world, MetalConfig.LEAD.getBaseAttack(), cyano.basemetals.init.Blocks.lead_block, 0x6E6E6E, true);
+		super(world, MetalConfig.LEAD.getBaseAttack(), MetalGolemBase.getBlockForMat("LEAD"), 0x6E6E6E, true);
 	}
 	
 	@Override
@@ -43,6 +43,6 @@ public class EntityLeadGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.lead_ingot;
+		return MetalGolemBase.getIngotForMat("LEAD");
 	}
 }

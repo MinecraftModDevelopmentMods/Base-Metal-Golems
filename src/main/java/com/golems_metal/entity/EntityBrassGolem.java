@@ -10,7 +10,7 @@ public class EntityBrassGolem extends MetalGolemBase
 {
 	public EntityBrassGolem(World world) 
 	{
-		super(world, MetalConfig.BRASS.getBaseAttack(), cyano.basemetals.init.Blocks.brass_block, 0xF5D865, false);
+		super(world, MetalConfig.BRASS.getBaseAttack(), MetalGolemBase.getBlockForMat("BRASS"), 0xF5D865, false);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntityBrassGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.brass_ingot;
+		return MetalGolemBase.getIngotForMat("BRASS");
 	}
 }

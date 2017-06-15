@@ -21,6 +21,7 @@ import com.golems_metal.entity.EntityStarSteelGolem;
 import com.golems_metal.entity.EntitySteelGolem;
 import com.golems_metal.entity.EntityTinGolem;
 import com.golems_metal.entity.EntityZincGolem;
+import com.golems_metal.entity.MetalGolemBase;
 import com.golems_metal.init.MetalConfig;
 
 import net.minecraft.block.Block;
@@ -35,75 +36,75 @@ public class BuildEventHandler
 	{
 		if(event.isGolemNull())
 		{
-			if(event.blockBelow == cyano.basemetals.init.Blocks.adamantine_block || matchesOreDict(event.blockBelow, "blockAdamantine"))
+			if(event.blockBelow == MetalGolemBase.getBlockForMat("ADAMANTINE") || matchesOreDict(event.blockBelow, "blockAdamantine"))
 			{
 				event.setGolem(new EntityAdamantineGolem(event.worldObj), MetalConfig.ADAMANTINE.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.aquarium_block || matchesOreDict(event.blockBelow, "blockAquarium"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("AQUARIUM") || matchesOreDict(event.blockBelow, "blockAquarium"))
 			{
 				event.setGolem(new EntityAquariumGolem(event.worldObj), MetalConfig.AQUARIUM.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.brass_block || matchesOreDict(event.blockBelow, "blockBrass"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("BRASS") || matchesOreDict(event.blockBelow, "blockBrass"))
 			{
 				event.setGolem(new EntityBrassGolem(event.worldObj), MetalConfig.BRASS.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.bronze_block || matchesOreDict(event.blockBelow, "blockBronze"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("BRONZE") || matchesOreDict(event.blockBelow, "blockBronze"))
 			{
 				event.setGolem(new EntityBronzeGolem(event.worldObj), MetalConfig.BRONZE.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.coldiron_block || matchesOreDict(event.blockBelow, "blockColdiron"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("COLDIRON") || matchesOreDict(event.blockBelow, "blockColdiron"))
 			{
 				event.setGolem(new EntityColdIronGolem(event.worldObj), MetalConfig.COLDIRON.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.copper_block || matchesOreDict(event.blockBelow, "blockCopper"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("COPPER") || matchesOreDict(event.blockBelow, "blockCopper"))
 			{
 				event.setGolem(new EntityCopperGolem(event.worldObj), MetalConfig.COPPER.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.cupronickel_block || matchesOreDict(event.blockBelow, "blockCupronickel"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("CUPRONICKEL") || matchesOreDict(event.blockBelow, "blockCupronickel"))
 			{
 				event.setGolem(new EntityCupronickelGolem(event.worldObj), MetalConfig.CUPRONICKEL.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.electrum_block || matchesOreDict(event.blockBelow, "blockElectrum"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("ELECTRUM") || matchesOreDict(event.blockBelow, "blockElectrum"))
 			{
 				event.setGolem(new EntityElectrumGolem(event.worldObj), MetalConfig.ELECTRUM.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.invar_block || matchesOreDict(event.blockBelow, "blockInvar"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("INVAR") || matchesOreDict(event.blockBelow, "blockInvar"))
 			{
 				event.setGolem(new EntityInvarGolem(event.worldObj), MetalConfig.INVAR.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.lead_block || matchesOreDict(event.blockBelow, "blockLead"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("LEAD") || matchesOreDict(event.blockBelow, "blockLead"))
 			{
 				event.setGolem(new EntityLeadGolem(event.worldObj), MetalConfig.LEAD.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.mithril_block || matchesOreDict(event.blockBelow, "blockMithril"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("MITHRIL") || matchesOreDict(event.blockBelow, "blockMithril"))
 			{
 				event.setGolem(new EntityMithrilGolem(event.worldObj), MetalConfig.MITHRIL.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.nickel_block || matchesOreDict(event.blockBelow, "blockNickel"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("NICKEL") || matchesOreDict(event.blockBelow, "blockNickel"))
 			{
 				event.setGolem(new EntityNickelGolem(event.worldObj), MetalConfig.NICKEL.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.platinum_block || matchesOreDict(event.blockBelow, "blockPlatinum"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("PLATINUM") || matchesOreDict(event.blockBelow, "blockPlatinum"))
 			{
 				event.setGolem(new EntityPlatinumGolem(event.worldObj), MetalConfig.PLATINUM.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.silver_block || matchesOreDict(event.blockBelow, "blockSilver"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("SILVER") || matchesOreDict(event.blockBelow, "blockSilver"))
 			{
 				event.setGolem(new EntitySilverGolem(event.worldObj), MetalConfig.SILVER.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.starsteel_block || matchesOreDict(event.blockBelow, "blockStarsteel"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("STARSTEEL") || matchesOreDict(event.blockBelow, "blockStarsteel"))
 			{
 				event.setGolem(new EntityStarSteelGolem(event.worldObj), MetalConfig.STARSTEEL.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.steel_block || matchesOreDict(event.blockBelow, "blockSteel"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("STEEL") || matchesOreDict(event.blockBelow, "blockSteel"))
 			{
 				event.setGolem(new EntitySteelGolem(event.worldObj), MetalConfig.STEEL.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.tin_block || matchesOreDict(event.blockBelow, "blockTin"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("TIN") || matchesOreDict(event.blockBelow, "blockTin"))
 			{
 				event.setGolem(new EntityTinGolem(event.worldObj), MetalConfig.TIN.canSpawn());
 			}
-			else if(event.blockBelow == cyano.basemetals.init.Blocks.zinc_block || matchesOreDict(event.blockBelow, "blockZinc"))
+			else if(event.blockBelow == MetalGolemBase.getBlockForMat("ZINC") || matchesOreDict(event.blockBelow, "blockZinc"))
 			{
 				event.setGolem(new EntityZincGolem(event.worldObj), MetalConfig.ZINC.canSpawn());
 			}

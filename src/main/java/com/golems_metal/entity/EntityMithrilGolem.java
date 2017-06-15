@@ -19,7 +19,7 @@ public class EntityMithrilGolem extends MetalGolemBase2
 	
 	public EntityMithrilGolem(World world) 
 	{
-		super(world, MetalConfig.MITHRIL.getBaseAttack(), cyano.basemetals.init.Blocks.mithril_block);
+		super(world, MetalConfig.MITHRIL.getBaseAttack(), MetalGolemBase.getBlockForMat("MITHRIL"));
 	}
 	
 	@Override
@@ -50,7 +50,7 @@ public class EntityMithrilGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.mithril_ingot;
+		return MetalGolemBase.getIngotForMat("MITHRIL");
 	}
 
 	@Override

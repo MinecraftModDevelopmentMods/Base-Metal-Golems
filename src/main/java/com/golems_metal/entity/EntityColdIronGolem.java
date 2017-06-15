@@ -14,7 +14,7 @@ public class EntityColdIronGolem extends MetalGolemBase
 	
 	public EntityColdIronGolem(World world) 
 	{
-		super(world, MetalConfig.COLDIRON.getBaseAttack(), cyano.basemetals.init.Blocks.coldiron_block, 0xBDC4E5);
+		super(world, MetalConfig.COLDIRON.getBaseAttack(), MetalGolemBase.getBlockForMat("COLDIRON"), 0xBDC4E5);
 		this.isImmuneToFire = true;
 	}
 	
@@ -43,6 +43,6 @@ public class EntityColdIronGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.coldiron_ingot;
+		return MetalGolemBase.getIngotForMat("COLDIRON");
 	}
 }

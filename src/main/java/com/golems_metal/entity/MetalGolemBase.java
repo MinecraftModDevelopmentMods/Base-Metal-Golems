@@ -6,6 +6,8 @@ import com.golems.entity.GolemBase;
 import com.golems.entity.GolemColorized;
 import com.golems.util.WeightedItem;
 import com.golems_metal.init.MetalGolems;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.init.Materials;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -37,6 +39,14 @@ public abstract class MetalGolemBase extends GolemColorized
 		this(world, attack, pickBlock, color, false);
 	}
 	
+	public static Block getBlockForMat(String material) {
+		return Materials.getMaterialByName(material).getBlock(Names.BLOCK);
+	}
+	
+	public static Item getIngotForMat(String material) {
+		return Materials.getMaterialByName(material).getItem(Names.INGOT);
+	}
+	
 	@Override
 	protected void applyAttributes() 
 	{
@@ -63,6 +73,8 @@ public abstract class MetalGolemBase extends GolemColorized
 	{
 		return SoundEvents.BLOCK_METAL_STEP;
 	}
+	
+	
 	
 	public abstract Item getIngot();
 }

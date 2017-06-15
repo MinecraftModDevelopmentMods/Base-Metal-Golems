@@ -13,7 +13,7 @@ public class EntityCopperGolem extends MetalGolemBase2
 {
 	public EntityCopperGolem(World world) 
 	{
-		super(world, MetalConfig.COPPER.getBaseAttack(), cyano.basemetals.init.Blocks.copper_block);
+		super(world, MetalConfig.COPPER.getBaseAttack(), MetalGolemBase.getBlockForMat("COPPER"));
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class EntityCopperGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.copper_ingot;
+		return MetalGolemBase.getIngotForMat("COPPER");
 	}
 
 	@Override

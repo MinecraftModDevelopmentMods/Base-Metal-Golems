@@ -13,7 +13,7 @@ public class EntityBronzeGolem extends MetalGolemBase2
 {
 	public EntityBronzeGolem(World world) 
 	{
-		super(world, MetalConfig.BRONZE.getBaseAttack(), cyano.basemetals.init.Blocks.bronze_block);
+		super(world, MetalConfig.BRONZE.getBaseAttack(), MetalGolemBase.getBlockForMat("BRONZE"));
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class EntityBronzeGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.bronze_ingot;
+		return MetalGolemBase.getIngotForMat("BRONZE");
 	}
 
 	@Override

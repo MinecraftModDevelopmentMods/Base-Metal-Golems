@@ -10,7 +10,7 @@ public class EntitySteelGolem extends MetalGolemBase
 {
 	public EntitySteelGolem(World world) 
 	{
-		super(world, MetalConfig.STEEL.getBaseAttack(), cyano.basemetals.init.Blocks.steel_block, 0xC8D4D6, false);
+		super(world, MetalConfig.STEEL.getBaseAttack(), MetalGolemBase.getBlockForMat("STEEL"), 0xC8D4D6, false);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntitySteelGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.steel_ingot;
+		return MetalGolemBase.getIngotForMat("STEEL");
 	}
 }

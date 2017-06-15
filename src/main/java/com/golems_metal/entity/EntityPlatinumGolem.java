@@ -10,7 +10,7 @@ public class EntityPlatinumGolem extends MetalGolemBase
 {
 	public EntityPlatinumGolem(World world) 
 	{
-		super(world, MetalConfig.PLATINUM.getBaseAttack(), cyano.basemetals.init.Blocks.platinum_block, 0xFAFAFA, true);
+		super(world, MetalConfig.PLATINUM.getBaseAttack(), MetalGolemBase.getBlockForMat("PLATINUM"), 0xFAFAFA, true);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntityPlatinumGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.platinum_ingot;
+		return MetalGolemBase.getIngotForMat("PLATINUM");
 	}
 }

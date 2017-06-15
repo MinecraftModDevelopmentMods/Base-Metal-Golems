@@ -10,7 +10,7 @@ public class EntityZincGolem extends MetalGolemBase
 {
 	public EntityZincGolem(World world) 
 	{
-		super(world, MetalConfig.ZINC.getBaseAttack(), cyano.basemetals.init.Blocks.zinc_block, 0xB1B1B1, false);
+		super(world, MetalConfig.ZINC.getBaseAttack(), MetalGolemBase.getBlockForMat("ZINC"), 0xB1B1B1, false);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntityZincGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.zinc_ingot;
+		return MetalGolemBase.getIngotForMat("ZINC");
 	}
 }

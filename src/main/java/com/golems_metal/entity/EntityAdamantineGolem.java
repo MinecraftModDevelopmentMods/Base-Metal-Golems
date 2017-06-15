@@ -16,7 +16,7 @@ public class EntityAdamantineGolem extends MetalGolemBase
 	
 	public EntityAdamantineGolem(World world) 
 	{
-		super(world, MetalConfig.ADAMANTINE.getBaseAttack(), cyano.basemetals.init.Blocks.adamantine_block, 0x452F34, true);
+		super(world, MetalConfig.ADAMANTINE.getBaseAttack(), MetalGolemBase.getBlockForMat("ADAMANTINE"), 0x452F34, true);
 	}
 	
 	@Override
@@ -57,6 +57,6 @@ public class EntityAdamantineGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.adamantine_ingot;
+		return MetalGolemBase.getIngotForMat("ADAMANITE");
 	}
 }

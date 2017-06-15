@@ -18,7 +18,7 @@ public class EntityAquariumGolem extends MetalGolemBase2
 	
 	public EntityAquariumGolem(World world) 
 	{
-		super(world, MetalConfig.AQUARIUM.getBaseAttack(), cyano.basemetals.init.Blocks.aquarium_block);
+		super(world, MetalConfig.AQUARIUM.getBaseAttack(), MetalGolemBase.getBlockForMat("AQUARIUM"));
 	}
 	
 	@Override
@@ -52,6 +52,6 @@ public class EntityAquariumGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.aquarium_ingot;
+		return MetalGolemBase.getIngotForMat("AQUARIUM");
 	}
 }

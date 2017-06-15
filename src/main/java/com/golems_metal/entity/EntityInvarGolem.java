@@ -10,7 +10,7 @@ public class EntityInvarGolem extends MetalGolemBase
 {
 	public EntityInvarGolem(World world) 
 	{
-		super(world, MetalConfig.INVAR.getBaseAttack(), cyano.basemetals.init.Blocks.invar_block, 0xC7C2AE, false);
+		super(world, MetalConfig.INVAR.getBaseAttack(), MetalGolemBase.getBlockForMat("INVAR"), 0xC7C2AE, false);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntityInvarGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.invar_ingot;
+		return MetalGolemBase.getIngotForMat("INVAR");
 	}
 }

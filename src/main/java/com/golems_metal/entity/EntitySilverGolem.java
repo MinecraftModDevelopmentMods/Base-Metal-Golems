@@ -16,7 +16,7 @@ public class EntitySilverGolem extends MetalGolemBase2
 	
 	public EntitySilverGolem(World world) 
 	{
-		super(world, MetalConfig.SILVER.getBaseAttack(), cyano.basemetals.init.Blocks.silver_block);
+		super(world, MetalConfig.SILVER.getBaseAttack(), MetalGolemBase.getBlockForMat("SILVER"));
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class EntitySilverGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.silver_ingot;
+		return MetalGolemBase.getIngotForMat("SILVER");
 	}
 
 	@Override

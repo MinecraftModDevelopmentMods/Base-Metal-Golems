@@ -13,7 +13,7 @@ public class EntityTinGolem extends MetalGolemBase2
 {
 	public EntityTinGolem(World world) 
 	{
-		super(world, MetalConfig.TIN.getBaseAttack(), cyano.basemetals.init.Blocks.tin_block);
+		super(world, MetalConfig.TIN.getBaseAttack(), MetalGolemBase.getBlockForMat("TIN"));
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class EntityTinGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.tin_ingot;
+		return MetalGolemBase.getIngotForMat("TIN");
 	}
 
 	@Override

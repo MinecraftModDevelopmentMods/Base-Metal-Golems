@@ -10,7 +10,7 @@ public class EntityCupronickelGolem extends MetalGolemBase
 {
 	public EntityCupronickelGolem(World world) 
 	{
-		super(world, MetalConfig.CUPRONICKEL.getBaseAttack(), cyano.basemetals.init.Blocks.cupronickel_block, 0x98896C);
+		super(world, MetalConfig.CUPRONICKEL.getBaseAttack(), MetalGolemBase.getBlockForMat("CUPRONICKEL"), 0x98896C);
 	}
 	
 	@Override
@@ -23,6 +23,6 @@ public class EntityCupronickelGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.cupronickel_ingot;
+		return MetalGolemBase.getIngotForMat("CUPRONICKEL");
 	}
 }

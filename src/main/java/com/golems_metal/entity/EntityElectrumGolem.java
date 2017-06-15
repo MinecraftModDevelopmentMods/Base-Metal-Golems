@@ -16,7 +16,7 @@ public class EntityElectrumGolem extends MetalGolemBase2
 	
 	public EntityElectrumGolem(World world) 
 	{
-		super(world, MetalConfig.ELECTRUM.getBaseAttack(), cyano.basemetals.init.Blocks.electrum_block);
+		super(world, MetalConfig.ELECTRUM.getBaseAttack(), MetalGolemBase.getBlockForMat("ELECTRUM"));
 	}
 	
 	@Override
@@ -36,7 +36,7 @@ public class EntityElectrumGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.electrum_ingot;
+		return MetalGolemBase.getIngotForMat("ELECTRUM");
 	}
 
 	@Override

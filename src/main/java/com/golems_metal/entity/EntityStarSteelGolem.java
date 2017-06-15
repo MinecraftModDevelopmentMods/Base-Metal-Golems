@@ -24,7 +24,7 @@ public class EntityStarSteelGolem extends GolemLightProvider
 	@SuppressWarnings("deprecation")
 	public EntityStarSteelGolem(World world) 
 	{
-		super(world, MetalConfig.STARSTEEL.getBaseAttack(), cyano.basemetals.init.Blocks.starsteel_block, EnumLightLevel.HALF);
+		super(world, MetalConfig.STARSTEEL.getBaseAttack(), MetalGolemBase.getBlockForMat("STARSTEEL"), EnumLightLevel.HALF);
 		this.stepHeight = 1.0F;
 	}
 
@@ -65,7 +65,7 @@ public class EntityStarSteelGolem extends GolemLightProvider
 	public void addGolemDrops(List<WeightedItem> list, boolean recentlyHit, int lootingLevel) 
 	{
 		int size = 6 + rand.nextInt(6) + lootingLevel;
-		this.addDrop(list, new ItemStack(cyano.basemetals.init.Items.starsteel_ingot, size > 36 ? 36 : size), 100);
+		this.addDrop(list, new ItemStack(MetalGolemBase.getIngotForMat("STARSTEEL"), size > 36 ? 36 : size), 100);
 	}
 
 	@Override
