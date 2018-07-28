@@ -1,16 +1,19 @@
 package com.golems_metal.entity;
 
 import com.golems_metal.init.MetalConfig;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class EntityBrassGolem extends MetalGolemBase
 {
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.BRASS);
 	public EntityBrassGolem(World world) 
 	{
-		super(world, MetalConfig.BRASS.getBaseAttack(), cyano.basemetals.init.Blocks.brass_block, 0xF5D865, false);
+		super(world, MetalConfig.BRASS.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK), 0xF5D865, false);
 	}
 	
 	@Override
@@ -18,11 +21,12 @@ public class EntityBrassGolem extends MetalGolemBase
 	{
 		super.applyAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MetalConfig.BRASS.getMaxHealth());
+
 	}
 
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.brass_ingot;
+		return MATERIAL.getItem(Names.INGOT);
 	}
 }

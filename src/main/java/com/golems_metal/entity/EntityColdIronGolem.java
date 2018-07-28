@@ -1,7 +1,9 @@
 package com.golems_metal.entity;
 
 import com.golems_metal.init.MetalConfig;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.Item;
@@ -11,10 +13,11 @@ import net.minecraft.world.World;
 public class EntityColdIronGolem extends MetalGolemBase
 {
 	public static final String DAMAGE_FIREPROOF = "Allow Special: Damages Fireproof";
-	
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.COLDIRON);
+
 	public EntityColdIronGolem(World world) 
 	{
-		super(world, MetalConfig.COLDIRON.getBaseAttack(), cyano.basemetals.init.Blocks.coldiron_block, 0xBDC4E5);
+		super(world, MetalConfig.COLDIRON.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK), 0xBDC4E5);
 		this.isImmuneToFire = true;
 	}
 	
@@ -33,7 +36,7 @@ public class EntityColdIronGolem extends MetalGolemBase
 			if(MetalConfig.COLDIRON.getBoolean(DAMAGE_FIREPROOF) && (entity.isBurning() || entity.isImmuneToFire()))
 			{
 				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
-				entity.attackEntityFrom(DamageSource.generic, damage);
+				entity.attackEntityFrom(DamageSource.GENERIC, damage);
 			}
 			return true;
 		}
@@ -43,6 +46,6 @@ public class EntityColdIronGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.coldiron_ingot;
+		return MATERIAL.getItem(Names.INGOT);
 	}
 }

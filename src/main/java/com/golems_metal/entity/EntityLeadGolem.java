@@ -1,7 +1,9 @@
 package com.golems_metal.entity;
 
 import com.golems_metal.init.MetalConfig;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,9 +14,11 @@ import net.minecraft.world.World;
 
 public class EntityLeadGolem extends MetalGolemBase
 {
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.LEAD);
+
 	public EntityLeadGolem(World world) 
 	{
-		super(world, MetalConfig.LEAD.getBaseAttack(), cyano.basemetals.init.Blocks.lead_block, 0x6E6E6E, true);
+		super(world, MetalConfig.LEAD.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK), 0x6E6E6E, true);
 	}
 	
 	@Override
@@ -43,6 +47,6 @@ public class EntityLeadGolem extends MetalGolemBase
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.lead_ingot;
+		return MATERIAL.getItem(Names.INGOT);
 	}
 }

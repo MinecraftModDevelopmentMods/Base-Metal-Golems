@@ -1,6 +1,8 @@
 ﻿# entity names
 entity.golems_metal.golem_adamantine.name=Adamantine Golem
+entity.golems_metal.golem_antimony.name=Antimony Golem
 entity.golems_metal.golem_aquarium.name=Aquarium Golem
+entity.golems_metal.golem_bismuth.name=Bismuth Golem
 entity.golems_metal.golem_brass.name=Brass Golem
 entity.golems_metal.golem_bronze.name=Bronze Golem
 entity.golems_metal.golem_coldiron.name=Cold Iron Golem
@@ -11,6 +13,7 @@ entity.golems_metal.golem_invar.name=Invar Golem
 entity.golems_metal.golem_lead.name=Lead Golem
 entity.golems_metal.golem_mithril.name=Mithril Golem
 entity.golems_metal.golem_nickel.name=Nickel Golem
+entity.golems_metal.golem_pewter.name=Pewter Golem
 entity.golems_metal.golem_platinum.name=Platinum Golem
 entity.golems_metal.golem_silver.name=Silver Golem
 entity.golems_metal.golem_starsteel.name=Star-Steel Golem

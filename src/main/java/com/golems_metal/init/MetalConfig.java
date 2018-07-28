@@ -1,20 +1,15 @@
 package com.golems_metal.init;
 
 import com.golems.util.GolemConfigSet;
-import com.golems_metal.entity.EntityAdamantineGolem;
-import com.golems_metal.entity.EntityAquariumGolem;
-import com.golems_metal.entity.EntityColdIronGolem;
-import com.golems_metal.entity.EntityElectrumGolem;
-import com.golems_metal.entity.EntityMithrilGolem;
-import com.golems_metal.entity.EntitySilverGolem;
-import com.golems_metal.entity.EntityStarSteelGolem;
-
+import com.golems_metal.entity.*;
 import net.minecraftforge.common.config.Configuration;
 
 public class MetalConfig 
 {
 	public static GolemConfigSet ADAMANTINE;
+	public static GolemConfigSet ANTIMONY;
 	public static GolemConfigSet AQUARIUM;
+	public static GolemConfigSet BISMUTH;
 	public static GolemConfigSet BRASS;
 	public static GolemConfigSet BRONZE;
 	public static GolemConfigSet COLDIRON;
@@ -25,6 +20,7 @@ public class MetalConfig
 	public static GolemConfigSet LEAD;
 	public static GolemConfigSet MITHRIL;
 	public static GolemConfigSet NICKEL;
+	public static GolemConfigSet PEWTER;
 	public static GolemConfigSet PLATINUM;
 	public static GolemConfigSet SILVER;
 	public static GolemConfigSet STARSTEEL;
@@ -38,7 +34,11 @@ public class MetalConfig
 
 		// initialize
 		ADAMANTINE = new GolemConfigSet(config, "Adamantine Golem", 240.0D, 21.0F);
+		//TODO: Change the stats of this golem.
+		ANTIMONY = new GolemConfigSet(config, "Antimony Golem", 100D, 7.0F);
 		AQUARIUM = new GolemConfigSet(config, "Aquarium Golem", 120.0D, 8.0F);
+		//TODO: Change the stats of this golem.
+		BISMUTH = new GolemConfigSet(config, "Bismuth Golem", 100D, 7.0F);
 		BRASS = new GolemConfigSet(config, "Brass Golem", 65.0D, 5.5F);
 		BRONZE = new GolemConfigSet(config, "Bronze Golem", 90.0D, 6.0F);
 		COLDIRON = new GolemConfigSet(config, "Cold Iron Golem", 112.0D, 9.5F);
@@ -49,6 +49,8 @@ public class MetalConfig
 		LEAD = new GolemConfigSet(config, "Lead Golem", 75.0D, 8.5F);
 		MITHRIL = new GolemConfigSet(config, "Mithril Golem", 180.0D, 10.0F);
 		NICKEL = new GolemConfigSet(config, "Nickel Golem", 60.0D, 5.0F);
+		//TODO: Change the stats of this golem.
+		PEWTER = new GolemConfigSet(config, "Pewter Golem", 100D, 12.0F);
 		PLATINUM = new GolemConfigSet(config, "Platinum Golem", 70.0D, 5.0F);
 		SILVER = new GolemConfigSet(config, "Silver Golem", 70.0D, 5.5F);
 		STARSTEEL = new GolemConfigSet(config, "Star-Steel Golem", 155.0D, 10.0F);

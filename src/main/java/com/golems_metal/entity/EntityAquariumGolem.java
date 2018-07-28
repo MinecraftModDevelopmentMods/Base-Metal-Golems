@@ -2,7 +2,9 @@ package com.golems_metal.entity;
 
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityWaterMob;
@@ -14,10 +16,10 @@ import net.minecraft.world.World;
 public class EntityAquariumGolem extends MetalGolemBase2
 {
 	public static final String DAMAGE_WATER = "Allow Special: Damage Water Mobs";
-	
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.AQUARIUM);
 	public EntityAquariumGolem(World world) 
 	{
-		super(world, MetalConfig.AQUARIUM.getBaseAttack(), cyano.basemetals.init.Blocks.aquarium_block);
+		super(world, MetalConfig.AQUARIUM.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK));
 	}
 	
 	@Override
@@ -35,7 +37,7 @@ public class EntityAquariumGolem extends MetalGolemBase2
 			if(MetalConfig.AQUARIUM.getBoolean(DAMAGE_WATER) && entity instanceof EntityWaterMob)
 			{
 				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
-				entity.attackEntityFrom(DamageSource.generic, damage);
+				entity.attackEntityFrom(DamageSource.GENERIC, damage);
 			}
 			return true;
 		}
@@ -45,12 +47,12 @@ public class EntityAquariumGolem extends MetalGolemBase2
 	@Override
 	protected ResourceLocation applyTexture() 
 	{
-		return this.makeGolemTexture(MetalGolems.MODID, "aquarium");
+		return EntityAquariumGolem.makeGolemTexture(MetalGolems.MODID, "aquarium");
 	}
 
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.aquarium_ingot;
+		return MATERIAL.getItem(Names.INGOT);
 	}
 }
