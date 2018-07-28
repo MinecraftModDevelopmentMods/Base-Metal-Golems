@@ -1,28 +1,31 @@
 package com.golems_metal.entity;
 
-import java.util.List;
-
 import com.golems.entity.GolemLightProvider;
 import com.golems.util.WeightedItem;
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 public class EntityStarSteelGolem extends GolemLightProvider
 {
 	public static final String ALLOW_HEALING = "Allow Special: Random Healing";
-	
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.STARSTEEL);
+
 	public EntityStarSteelGolem(World world) 
 	{
-		super(world, MetalConfig.STARSTEEL.getBaseAttack(), cyano.basemetals.init.Blocks.starsteel_block, EnumLightLevel.HALF);
+	    //TODO: Nothing in 1.10.2 about EnumLightLevel. Is the replacement correct?
+		super(world, MetalConfig.STARSTEEL.getBaseAttack(), MATERIAL.getBlockItemStack(Names.BLOCK), LightManager.HALF);
 		this.stepHeight = 1.0F;
 	}
 
@@ -63,7 +66,8 @@ public class EntityStarSteelGolem extends GolemLightProvider
 	public void addGolemDrops(List<WeightedItem> list, boolean recentlyHit, int lootingLevel) 
 	{
 		int size = 6 + rand.nextInt(6) + lootingLevel;
-		this.addDrop(list, new ItemStack(cyano.basemetals.init.Items.starsteel_ingot, size > 36 ? 36 : size), 100);
+		this.addDrop(list, MATERIAL.getItemStack(Names.INGOT
+				, size > 36 ? 36 : size), 100);
 	}
 
 	@Override

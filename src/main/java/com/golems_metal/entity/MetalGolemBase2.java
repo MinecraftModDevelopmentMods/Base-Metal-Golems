@@ -1,10 +1,7 @@
 package com.golems_metal.entity;
 
-import java.util.List;
-
 import com.golems.entity.GolemBase;
 import com.golems.util.WeightedItem;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
@@ -14,6 +11,8 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public abstract class MetalGolemBase2 extends GolemBase
 {	
@@ -31,10 +30,10 @@ public abstract class MetalGolemBase2 extends GolemBase
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getBrightnessForRender(float partialTicks)
+	public int getBrightnessForRender()
 	{
 		final int LIGHT_ADDED = 16;
-		return super.getBrightnessForRender(partialTicks) + LIGHT_ADDED;
+		return super.getBrightnessForRender() + LIGHT_ADDED;
 	}
 	
 	@Override

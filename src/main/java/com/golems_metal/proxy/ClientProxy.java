@@ -1,25 +1,7 @@
 package com.golems_metal.proxy;
 
-import com.golems_metal.entity.EntityAdamantineGolem;
-import com.golems_metal.entity.EntityAquariumGolem;
-import com.golems_metal.entity.EntityBrassGolem;
-import com.golems_metal.entity.EntityBronzeGolem;
-import com.golems_metal.entity.EntityColdIronGolem;
-import com.golems_metal.entity.EntityCopperGolem;
-import com.golems_metal.entity.EntityCupronickelGolem;
-import com.golems_metal.entity.EntityElectrumGolem;
-import com.golems_metal.entity.EntityInvarGolem;
-import com.golems_metal.entity.EntityLeadGolem;
-import com.golems_metal.entity.EntityMithrilGolem;
-import com.golems_metal.entity.EntityNickelGolem;
-import com.golems_metal.entity.EntityPlatinumGolem;
-import com.golems_metal.entity.EntitySilverGolem;
-import com.golems_metal.entity.EntityStarSteelGolem;
-import com.golems_metal.entity.EntitySteelGolem;
-import com.golems_metal.entity.EntityTinGolem;
-import com.golems_metal.entity.EntityZincGolem;
+import com.golems_metal.entity.*;
 import com.golems_metal.events.InfoEventHandler;
-
 import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy
@@ -29,6 +11,8 @@ public class ClientProxy extends CommonProxy
 	{
 		super.registerEntities();
 		com.golems.proxies.ClientProxy.registerColorized(EntityAdamantineGolem.class);
+		com.golems.proxies.ClientProxy.registerColorized(EntityAntimonyGolem.class);
+		com.golems.proxies.ClientProxy.registerColorized(EntityBismuthGolem.class);
 		com.golems.proxies.ClientProxy.registerTextured(EntityAquariumGolem.class);
 		com.golems.proxies.ClientProxy.registerColorized(EntityBrassGolem.class);
 		com.golems.proxies.ClientProxy.registerTextured(EntityBronzeGolem.class);
@@ -40,6 +24,7 @@ public class ClientProxy extends CommonProxy
 		com.golems.proxies.ClientProxy.registerColorized(EntityLeadGolem.class);
 		com.golems.proxies.ClientProxy.registerTextured(EntityMithrilGolem.class);
 		com.golems.proxies.ClientProxy.registerColorized(EntityNickelGolem.class);
+		com.golems.proxies.ClientProxy.registerColorized(EntityPewterGolem.class);
 		com.golems.proxies.ClientProxy.registerColorized(EntityPlatinumGolem.class);
 		com.golems.proxies.ClientProxy.registerTextured(EntitySilverGolem.class);
 		com.golems.proxies.ClientProxy.registerTextured(EntityStarSteelGolem.class);

@@ -1,11 +1,8 @@
 package com.golems_metal.integration.waila;
 
-import java.util.List;
-
 import com.golems.entity.GolemBase;
 import com.golems.integration.ModIds;
 import com.golems_metal.integration.MetalGolemDescriptionManager;
-
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaEntityAccessor;
 import mcp.mobius.waila.api.IWailaEntityProvider;
@@ -16,11 +13,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
 
-import static com.golems.integration.waila.WailaExtraGolems.configShowAttackDamage;
-import static com.golems.integration.waila.WailaExtraGolems.configShowFireproof;
-import static com.golems.integration.waila.WailaExtraGolems.configShowKnockbackResist;
-import static com.golems.integration.waila.WailaExtraGolems.configShowMultiTexture;
-import static com.golems.integration.waila.WailaExtraGolems.configShowSpecialAbilities;
+import java.util.List;
+
+import static com.golems.integration.waila.WailaExtraGolems.*;
 
 @Optional.Interface(iface = "mcp.mobius.waila.api.IWailaEntityProvider", modid = ModIds.WAILA)
 public class WailaMetalGolems extends MetalGolemDescriptionManager implements IWailaEntityProvider
@@ -55,11 +50,11 @@ public class WailaMetalGolems extends MetalGolemDescriptionManager implements IW
 		{
 			GolemBase golem = (GolemBase)entity;
 			
-			this.showAttack = config.getConfig(configShowAttackDamage) && accessor.getPlayer().isSneaking();
-			this.showMultiTexture = config.getConfig(configShowMultiTexture);
-			this.showSpecial = config.getConfig(configShowSpecialAbilities);
-			this.showFireproof = config.getConfig(configShowFireproof) && accessor.getPlayer().isSneaking();
-			this.showKnockbackResist = config.getConfig(configShowKnockbackResist);
+			this.showAttack = config.getConfig(CONFIG_SHOW_ATTACK_DAMAGE) && accessor.getPlayer().isSneaking();
+			this.showMultiTexture = config.getConfig(CONFIG_SHOW_MULTI_TEXTURE);
+			this.showSpecial = config.getConfig(CONFIG_SHOW_SPECIAL_ABILITIES);
+			this.showFireproof = config.getConfig(CONFIG_SHOW_FIREPROOF) && accessor.getPlayer().isSneaking();
+			this.showKnockbackResist = config.getConfig(CONFIG_SHOW_KNOCKBACK_RESIST);
 			
 			tip.addAll(this.getEntityDescription(golem));
 		}

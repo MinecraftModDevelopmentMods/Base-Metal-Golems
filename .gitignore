@@ -17,3 +17,7 @@
 /run/
 /out/
 gradle.properties
+
+# IDEA
+/.idea
+*.iml

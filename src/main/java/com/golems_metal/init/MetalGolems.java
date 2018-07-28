@@ -2,7 +2,6 @@ package com.golems_metal.init;
 
 import com.golems.integration.ModIds;
 import com.golems_metal.proxy.CommonProxy;
-
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -16,10 +15,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class MetalGolems 
 {
 	public static final String MODID = "golems_metal";
-	public static final String DEPENDENCIES = "required-after:golems@[6.02,);required-after:basemetals@[2.4.0.11,)";
+	public static final String DEPENDENCIES = "required-after:golems@[7.00,);required-after:basemetals@[2.5.0,);required-after:forge@[14.23.4.2705,";
 	public static final String NAME = "Base Metal Golems";
-	public static final String VERSION = "6.02.2";
-	public static final String MCVERSION = "1.10.2";
+	public static final String VERSION = "7.00-alpha1";
+	public static final String MCVERSION = "1.12.2";
 	
 	@Mod.Instance(MetalGolems.MODID)
 	public static MetalGolems instance;

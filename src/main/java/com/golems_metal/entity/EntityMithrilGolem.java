@@ -2,7 +2,9 @@ package com.golems_metal.entity;
 
 import com.golems_metal.init.MetalConfig;
 import com.golems_metal.init.MetalGolems;
-
+import com.mcmoddev.basemetals.data.MaterialNames;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.material.MMDMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -15,10 +17,11 @@ import net.minecraft.world.World;
 public class EntityMithrilGolem extends MetalGolemBase2
 {
 	public static final String DAMAGE_UNDEAD = "Allow Special: Damage Undead";
-	
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.MITHRIL);
+
 	public EntityMithrilGolem(World world) 
 	{
-		super(world, MetalConfig.MITHRIL.getBaseAttack(), cyano.basemetals.init.Blocks.mithril_block);
+		super(world, MetalConfig.MITHRIL.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK));
 	}
 	
 	@Override
@@ -38,7 +41,7 @@ public class EntityMithrilGolem extends MetalGolemBase2
 				if(entity instanceof EntityLivingBase && ((EntityLivingBase)entity).getCreatureAttribute() == EnumCreatureAttribute.UNDEAD)
 				{
 					float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
-					entity.attackEntityFrom(DamageSource.generic, damage);
+					entity.attackEntityFrom(DamageSource.GENERIC, damage);
 				}
 			}
 			return true;
@@ -49,7 +52,7 @@ public class EntityMithrilGolem extends MetalGolemBase2
 	@Override
 	public Item getIngot() 
 	{
-		return cyano.basemetals.init.Items.mithril_ingot;
+		return MATERIAL.getItem(Names.INGOT);
 	}
 
 	@Override
