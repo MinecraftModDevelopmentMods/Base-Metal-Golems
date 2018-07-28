@@ -3,7 +3,7 @@
   "modid": "golems_metal",
   "name": "Base Metal Golems",
   "description": "Adds Extra Golems made from Base Metals materials",
-  "version": "7.00-alpha1",
+  "version": "7.00-alpha2",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

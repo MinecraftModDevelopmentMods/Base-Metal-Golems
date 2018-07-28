@@ -20,7 +20,7 @@ javadoc {
 }
 
 
-version = "7.00-alpha1"
+version = "7.00-alpha2"
 group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "BaseMetalGolems[1.12.2]"
 
