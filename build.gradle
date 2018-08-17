@@ -20,15 +20,14 @@ javadoc {
 }
 
 
-version = "7.00-alpha2"
+version = "7.0.0-alpha2"
 group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "BaseMetalGolems[1.12.2]"
 
 minecraft {
     version = "1.12.2-14.23.4.2705"
     runDir = "run"
 
-    mappings = "snapshot_20180709"
+    mappings = "stable_39"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 

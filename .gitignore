@@ -16,7 +16,6 @@
 /bin/
 /run/
 /out/
-gradle.properties
 
 # IDEA
 /.idea
