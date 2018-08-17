@@ -16,8 +16,7 @@ public class EntityAdamantineGolem extends MetalGolemBase
 	public static final String DAMAGE_TOUGH = "Allow Special: Damage Tough";
 	public static final String ALLOW_RESIST = "Allow Special: Resistance";
 
-	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.
-            Materials.getMaterialByName(MaterialNames.ADAMANTINE);
+	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.ADAMANTINE);
 	
 	public EntityAdamantineGolem(World world) 
 	{
