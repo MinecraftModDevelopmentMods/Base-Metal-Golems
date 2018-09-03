@@ -79,27 +79,6 @@ public class CommonProxy
 		if(Materials.hasMaterial(MaterialNames.ZINC)) {
 			register(EntityZincGolem.class, "golem_zinc");
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 	
 	public void registerEvents()

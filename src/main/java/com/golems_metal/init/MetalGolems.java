@@ -2,6 +2,8 @@ package com.golems_metal.init;
 
 import com.golems.integration.ModIds;
 import com.golems_metal.proxy.CommonProxy;
+import com.mcmoddev.lib.events.MMLibPreInitSync;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -10,7 +12,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+@Mod.EventBusSubscriber
 @Mod(modid = MetalGolems.MODID, name = MetalGolems.NAME, version = MetalGolems.VERSION, dependencies = MetalGolems.DEPENDENCIES, acceptedMinecraftVersions = MetalGolems.MCVERSION)
 public class MetalGolems 
 {
@@ -25,17 +28,24 @@ public class MetalGolems
 	
 	@SidedProxy(clientSide = "com." + MODID + ".proxy.ClientProxy", serverSide = "com." + MODID + ".proxy.CommonProxy")
 	public static CommonProxy proxy;
+
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) 
-	{	
+	{
+		MinecraftForge.EVENT_BUS.register(MetalGolems.class);
 		MetalConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
-		proxy.registerEntities();
+
 	}
-	
+	@SubscribeEvent
+	public static void preinitsync(MMLibPreInitSync event) {
+		proxy.registerEntities();
+
+	}
 	@EventHandler
 	public static void init(FMLInitializationEvent event) 
 	{
+
 		proxy.registerEvents();
 		
 		if(Loader.isModLoaded(ModIds.WAILA))
