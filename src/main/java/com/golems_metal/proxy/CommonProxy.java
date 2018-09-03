@@ -13,7 +13,7 @@ public class CommonProxy
 {
 	protected static int entityCount;
 	
-	public void registerEntities() 
+	public void registerEntities()
 	{
 		entityCount = 0;
 		if(Materials.hasMaterial(MaterialNames.ADAMANTINE)) {

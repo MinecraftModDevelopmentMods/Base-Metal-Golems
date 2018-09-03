@@ -3,7 +3,6 @@ package com.golems_metal.init;
 import com.golems.integration.ModIds;
 import com.golems_metal.proxy.CommonProxy;
 import com.mcmoddev.lib.events.MMLibPreInitSync;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +19,7 @@ public class MetalGolems
 	public static final String MODID = "golems_metal";
 	public static final String DEPENDENCIES = "required-after:golems@[7.00,);required-after:basemetals@[2.5.0,);required-after:forge@[14.23.4.2705,";
 	public static final String NAME = "Base Metal Golems";
-	public static final String VERSION = "7.00-alpha2";
+	public static final String VERSION = "7.00-alpha3";
 	public static final String MCVERSION = "1.12.2";
 	
 	@Mod.Instance(MetalGolems.MODID)
@@ -33,14 +32,12 @@ public class MetalGolems
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) 
 	{
-		MinecraftForge.EVENT_BUS.register(MetalGolems.class);
 		MetalConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
 
 	}
 	@SubscribeEvent
 	public static void preinitsync(MMLibPreInitSync event) {
 		proxy.registerEntities();
-
 	}
 	@EventHandler
 	public static void init(FMLInitializationEvent event) 
