@@ -13,7 +13,7 @@ public class CommonProxy
 {
 	protected static int entityCount;
 	
-	public void registerEntities() 
+	public void registerEntities()
 	{
 		entityCount = 0;
 		if(Materials.hasMaterial(MaterialNames.ADAMANTINE)) {
@@ -79,27 +79,6 @@ public class CommonProxy
 		if(Materials.hasMaterial(MaterialNames.ZINC)) {
 			register(EntityZincGolem.class, "golem_zinc");
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 	
 	public void registerEvents()
