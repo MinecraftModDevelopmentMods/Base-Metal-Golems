@@ -9,12 +9,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class EntitySilverGolem extends MetalGolemBase2 
-{
+public class EntitySilverGolem extends MetalGolemBase2 {
+	
 	public static final String ALLOW_IMMUNE = "Allow Special: Immune to Magic";
 	
 	public EntitySilverGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_silver");
 	}
 
 	@Override

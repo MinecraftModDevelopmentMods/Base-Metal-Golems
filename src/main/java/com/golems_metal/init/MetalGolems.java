@@ -31,27 +31,12 @@ public class MetalGolems {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		MetalConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
-
-	}
-	
-	@SubscribeEvent
-	public static void preinitsync(MMLibPreInitSync event) {
-		proxy.registerEntities();
+		proxy.preInitRenders();
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-
-		//proxy.registerEvents();
-		
-		//if(Loader.isModLoaded(ModIds.WAILA))
-		//{
-		//	FMLInterModComms.sendMessage(ModIds.WAILA, "register", "com.golems_metal.integration.waila.WailaMetalGolems.callbackRegister");
-		//}
-		//if(Loader.isModLoaded(ModIds.TOP))
-		//{
-		//	FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "com.golems_metal.integration.theoneprobe.TOPMetalGolems$GetTheOneProbe");
-		//}
+		proxy.registerEntities();
 	}
 }
 

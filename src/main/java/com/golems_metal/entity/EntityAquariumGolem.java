@@ -18,6 +18,7 @@ public class EntityAquariumGolem extends MetalGolemBase2 {
 
 	public EntityAquariumGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_aquarium");
 	}
 	
 	@Override

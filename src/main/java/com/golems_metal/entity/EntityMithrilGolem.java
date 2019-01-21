@@ -19,6 +19,7 @@ public class EntityMithrilGolem extends MetalGolemBase2 {
 
 	public EntityMithrilGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_mithril");
 	}
 	
 	@Override

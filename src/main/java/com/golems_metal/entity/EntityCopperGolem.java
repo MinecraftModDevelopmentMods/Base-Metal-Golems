@@ -9,6 +9,7 @@ public class EntityCopperGolem extends MetalGolemBase2 {
 
 	public EntityCopperGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_copper");
 	}
 	
 	@Override

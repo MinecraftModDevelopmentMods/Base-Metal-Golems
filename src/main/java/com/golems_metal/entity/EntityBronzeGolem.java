@@ -9,6 +9,7 @@ public class EntityBronzeGolem extends MetalGolemBase2 {
 	
 	public EntityBronzeGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_bronze");
 	}
 	
 	@Override

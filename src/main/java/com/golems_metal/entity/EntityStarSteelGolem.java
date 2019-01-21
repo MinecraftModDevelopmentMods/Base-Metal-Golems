@@ -2,12 +2,8 @@ package com.golems_metal.entity;
 
 import java.util.List;
 
-import com.golems.blocks.BlockUtilityGlow;
-import com.golems.entity.ai.EntityAIPlaceSingleBlock;
-import com.golems.main.GolemItems;
 import com.golems_metal.init.MetalGolems;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -19,23 +15,13 @@ import net.minecraft.world.World;
 
 public class EntityStarSteelGolem extends MetalGolemBase2 {
 	
-	public static final String ALLOW_HEALING = "Allow Special: Random Healing";
-	public static final String ALLOW_LIGHT = "Allow Glowing";
-	public static final String LIGHT_FREQ = "Glowing Update Frequency";
-	/** Float value between 0.0F and 1.0F that determines light level **/
-	private static final float brightness = 0.5F;
-	
+	public static final String ALLOW_HEALING = "Allow Special: Random Healing";	
 	
 	public EntityStarSteelGolem(World world) {
 		super(world);
 		this.stepHeight = 1.0F;
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MetalGolemBase.METAL_GOLEM_SPEED + 0.06D);
-		// allow lighting
-		final int lightInt = (int)(brightness * 15.0F);
-		final int freq = getConfig(this).getInt(LIGHT_FREQ);
-		final boolean allowed = getConfig(this).getBoolean(ALLOW_LIGHT);
-		final IBlockState state = GolemItems.blockLightSource.getDefaultState().withProperty(BlockUtilityGlow.LIGHT_LEVEL, lightInt);
-		this.tasks.addTask(9, new EntityAIPlaceSingleBlock(this, state, freq, allowed));
+		this.setLootTableLoc("golem_starsteel");
 	}
 
 	/**
@@ -59,14 +45,6 @@ public class EntityStarSteelGolem extends MetalGolemBase2 {
 	protected float getJumpUpwardsMotion() {
 		return 0.62F;
 	}
-	
-//	@Override
-//	public void addGolemDrops(List<WeightedItem> list, boolean recentlyHit, int lootingLevel) 
-//	{
-//		int size = 6 + rand.nextInt(6) + lootingLevel;
-//		this.addDrop(list, MATERIAL.getItemStack(Names.INGOT
-//				, size > 36 ? 36 : size), 100);
-//	}
 
 	@Override
 	protected ResourceLocation applyTexture() {

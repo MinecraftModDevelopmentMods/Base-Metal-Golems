@@ -1,5 +1,6 @@
 package com.golems_metal.proxy;
 
+import com.golems.entity.EntityCoalGolem;
 import com.golems.entity.GolemBase;
 import com.golems.util.GolemLookup;
 import com.golems_metal.entity.*;
@@ -18,6 +19,10 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 public class CommonProxy
 {
 	protected static int entityCount;
+
+	public void preInitRenders() {
+		//
+	}
 	
 	public void registerEntities()
 	{
@@ -85,6 +90,12 @@ public class CommonProxy
 		if(Materials.hasMaterial(MaterialNames.ZINC)) {
 			register(EntityZincGolem.class, "golem_zinc", Materials.getMaterialByName(MaterialNames.ZINC));
 		}
+		
+		// add Charcoal as a material for Coal Block Golem
+		if(Materials.hasMaterial(MaterialNames.CHARCOAL)) {
+			System.out.println("(Please ignore the following warning about 'com.golems.entity.EntityCoalGolem' - this is intentional)");
+			GolemLookup.addGolem(EntityCoalGolem.class, Materials.getMaterialByName(MaterialNames.CHARCOAL).getBlock(Names.BLOCK));
+		}
 	}
 	
 	/** registers the entity with an optional loot table. **/
@@ -98,26 +109,18 @@ public class CommonProxy
 		GolemLookup.addGolem(entityClass, material.getBlock(Names.BLOCK));
 		// register loot table
 		if(registerLootTable) {
-			// TODO
-			//registerLootTable(name);
+			registerLootTable(name);
 		}
 	}
 	
-	/** registers the entity without a loot table. **/
+	/** registers the entity with a loot table. **/
 	protected static void register(final Class<? extends GolemBase> entityClass, final String name, final MMDMaterial material) {
-		register(entityClass, name, material, false);
+		register(entityClass, name, material, true);
 	}
 	
 	protected static void registerLootTable(final String name) {
 		LootTableList.register(new ResourceLocation(MetalGolems.MODID, "entities/" + name));
 	}
-	
-	protected static void registerLootTables(final String MODID, final String prefix, final String[] names) {
-		for(String s : names) {
-			LootTableList.register(new ResourceLocation(MODID, "entities/golem_" + prefix + "/" + s));
-		}
-	}
-
 	
 	/** registers the entity **/
 //	protected void register(Class entityClass, String name)

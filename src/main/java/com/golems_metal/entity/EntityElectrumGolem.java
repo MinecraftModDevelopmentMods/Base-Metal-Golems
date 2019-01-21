@@ -17,6 +17,7 @@ public class EntityElectrumGolem extends MetalGolemBase2 {
 	public EntityElectrumGolem(World world) {
 		super(world);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MetalGolemBase.METAL_GOLEM_SPEED + 0.11D);
+		this.setLootTableLoc("golem_electrum");
 	}
 	
 	@Override

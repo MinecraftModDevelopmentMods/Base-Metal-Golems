@@ -15,6 +15,7 @@ public class EntityColdIronGolem extends MetalGolemBase {
 	public EntityColdIronGolem(World world) {
 		super(world, 0xBDC4E5);
 		this.isImmuneToFire = true;
+		this.setLootTableLoc("golem_coldiron");
 	}
 	
 	@Override

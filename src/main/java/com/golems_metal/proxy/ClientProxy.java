@@ -6,12 +6,10 @@ import com.golems_metal.entity.*;
 import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.init.Materials;
 
-public class ClientProxy extends CommonProxy
-{
+public class ClientProxy extends CommonProxy {
+	
 	@Override
-	public void registerEntities()
-	{
-		super.registerEntities();
+	public void preInitRenders() {
 		if(Materials.hasMaterial(MaterialNames.ADAMANTINE)) {
 			registerRender(EntityAdamantineGolem.class);
 		}
@@ -75,10 +73,9 @@ public class ClientProxy extends CommonProxy
 		if(Materials.hasMaterial(MaterialNames.ZINC)) {
 			registerRender(EntityZincGolem.class);
 		}
-
 	}
 	
-	private void registerRender(Class<? extends GolemBase> clazz) {
+	private static void registerRender(Class<? extends GolemBase> clazz) {
 		if(GolemColorized.class.isAssignableFrom(clazz)) {
 			com.golems.proxies.ClientProxy.registerColorized((Class<? extends GolemColorized>)clazz);
 		} else {

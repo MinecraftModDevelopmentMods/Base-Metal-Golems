@@ -9,6 +9,7 @@ public class EntityTinGolem extends MetalGolemBase2 {
 
 	public EntityTinGolem(World world) {
 		super(world);
+		this.setLootTableLoc("golem_tin");
 	}
 
 	@Override

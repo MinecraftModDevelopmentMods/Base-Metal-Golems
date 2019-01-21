@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 public class EntityBismuthGolem extends MetalGolemBase {
 
     public EntityBismuthGolem(World world) {
-        super(world, 0xFFDDD7CB, false);
+        super(world, 0xFFDDD7CB);
+        this.setLootTableLoc("golem_bismuth");
     }
 }

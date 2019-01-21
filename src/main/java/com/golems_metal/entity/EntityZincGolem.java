@@ -6,5 +6,6 @@ public class EntityZincGolem extends MetalGolemBase {
 	
 	public EntityZincGolem(World world) {
 		super(world, 0xB1B1B1);
+		this.setLootTableLoc("golem_zinc");
 	}
 }

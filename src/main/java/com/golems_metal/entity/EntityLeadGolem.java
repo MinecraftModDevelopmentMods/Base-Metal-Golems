@@ -13,6 +13,7 @@ public class EntityLeadGolem extends MetalGolemBase {
 		super(world, 0x6E6E6E, true);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.9999D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.12D);
+		this.setLootTableLoc("golem_lead");
 	}
 	
 	@Override
@@ -25,6 +26,4 @@ public class EntityLeadGolem extends MetalGolemBase {
 		}
 		return false;
 	}
-	
-	// TODO add special desc?
 }
