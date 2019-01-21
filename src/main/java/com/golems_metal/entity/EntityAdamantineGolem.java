@@ -1,33 +1,22 @@
 package com.golems_metal.entity;
 
-import com.golems_metal.init.MetalConfig;
-import com.mcmoddev.basemetals.data.MaterialNames;
-import com.mcmoddev.lib.data.Names;
-import com.mcmoddev.lib.material.MMDMaterial;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class EntityAdamantineGolem extends MetalGolemBase
 {	
 	public static final String DAMAGE_TOUGH = "Allow Special: Damage Tough";
 	public static final String ALLOW_RESIST = "Allow Special: Resistance";
-
-	public static final MMDMaterial MATERIAL = com.mcmoddev.lib.init.Materials.getMaterialByName(MaterialNames.ADAMANTINE);
 	
 	public EntityAdamantineGolem(World world) 
 	{
-		super(world, MetalConfig.ADAMANTINE.getBaseAttack(), MATERIAL.getBlock(Names.BLOCK), 0x452F34, true);
-	}
-	
-	@Override
-	protected void applyAttributes() 
-	{
-		super.applyAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MetalConfig.ADAMANTINE.getMaxHealth());
+		super(world, 0x452F34, true);
 	}
 	
 	@Override
@@ -38,7 +27,7 @@ public class EntityAdamantineGolem extends MetalGolemBase
 			if(entity instanceof EntityLivingBase)
 			{
 				double maxHealth = ((EntityLivingBase)entity).getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
-				if(MetalConfig.ADAMANTINE.getBoolean(DAMAGE_TOUGH) && maxHealth >= 10)
+				if(getConfig(this).getBoolean(DAMAGE_TOUGH) && maxHealth >= 10)
 				{
 					entity.attackEntityFrom(DamageSource.GENERIC, 4.0F);
 				}
@@ -51,16 +40,27 @@ public class EntityAdamantineGolem extends MetalGolemBase
 	@Override
 	protected void damageEntity(DamageSource source, float amount) 
 	{
-		if(MetalConfig.ADAMANTINE.getBoolean(ALLOW_RESIST))
+		if(getConfig(this).getBoolean(ALLOW_RESIST))
 		{
 			amount *= 3.0F / 5.0F;
 		}
 		super.damageEntity(source, amount);
 	}
-
+	
 	@Override
-	public Item getIngot() 
-	{
-		return MATERIAL.getItem(Names.INGOT);
+	public List<String> addSpecialDesc(final List<String> list) { 
+		
+		if(getConfig(this).getBoolean(EntityAdamantineGolem.DAMAGE_TOUGH))
+		{
+			String sDamage = TextFormatting.AQUA + trans("entitytip.extra_damage", trans("entitytip.tough"));
+			list.add(sDamage);
+		}
+
+		if(getConfig(this).getBoolean(EntityAdamantineGolem.ALLOW_RESIST))
+		{
+			String sResist = TextFormatting.GRAY + trans("entitytip.damage_resist");
+			list.add(sResist);
+		}
+		return list;
 	}
 }

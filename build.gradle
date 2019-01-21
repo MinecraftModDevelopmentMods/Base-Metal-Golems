@@ -1,4 +1,3 @@
-
 // For those who want the bleeding edge
 buildscript {
     repositories {
@@ -21,7 +20,7 @@ javadoc {
 
 
 
-version = "7.0.0-alpha_build3"
+version = "7.1.0-alpha1"
 group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 minecraft {

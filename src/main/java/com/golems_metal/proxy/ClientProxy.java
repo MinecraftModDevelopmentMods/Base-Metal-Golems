@@ -1,10 +1,10 @@
 package com.golems_metal.proxy;
 
+import com.golems.entity.GolemBase;
+import com.golems.entity.GolemColorized;
 import com.golems_metal.entity.*;
-import com.golems_metal.events.InfoEventHandler;
 import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.init.Materials;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy
 {
@@ -13,74 +13,76 @@ public class ClientProxy extends CommonProxy
 	{
 		super.registerEntities();
 		if(Materials.hasMaterial(MaterialNames.ADAMANTINE)) {
-			com.golems.proxies.ClientProxy.registerColorized(EntityAdamantineGolem.class);
+			registerRender(EntityAdamantineGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.ANTIMONY)) {
-			com.golems.proxies.ClientProxy.registerColorized(EntityAntimonyGolem.class);
+			registerRender(EntityAntimonyGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.BISMUTH)) {
-			com.golems.proxies.ClientProxy.registerColorized(EntityBismuthGolem.class);
+			registerRender(EntityBismuthGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.AQUARIUM)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityAquariumGolem.class);
+			registerRender(EntityAquariumGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.BRASS)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityBrassGolem.class);
+			registerRender(EntityBrassGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.BRONZE)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityBronzeGolem.class);
+			registerRender(EntityBronzeGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.COLDIRON)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityColdIronGolem.class);
+			registerRender(EntityColdIronGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.COPPER)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityCopperGolem.class);
+			registerRender(EntityCopperGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.CUPRONICKEL)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityCupronickelGolem.class);
+			registerRender(EntityCupronickelGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.ELECTRUM)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityElectrumGolem.class);
+			registerRender(EntityElectrumGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.INVAR)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityInvarGolem.class);
+			registerRender(EntityInvarGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.LEAD)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityLeadGolem.class);
+			registerRender(EntityLeadGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.MITHRIL)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityMithrilGolem.class);
+			registerRender(EntityMithrilGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.NICKEL)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityNickelGolem.class);
+			registerRender(EntityNickelGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.PEWTER)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityPewterGolem.class);
+			registerRender(EntityPewterGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.PLATINUM)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityPlatinumGolem.class);
+			registerRender(EntityPlatinumGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.SILVER)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntitySilverGolem.class);
+			registerRender(EntitySilverGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.STARSTEEL)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityStarSteelGolem.class);
+			registerRender(EntityStarSteelGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.STEEL)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntitySteelGolem.class);
+			registerRender(EntitySteelGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.TIN)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityTinGolem.class);
+			registerRender(EntityTinGolem.class);
 		}
 		if(Materials.hasMaterial(MaterialNames.ZINC)) {
-			com.golems.proxies.ClientProxy.registerTextured(EntityZincGolem.class);
+			registerRender(EntityZincGolem.class);
 		}
 
 	}
-	@Override
-	public void registerEvents()
-	{
-		super.registerEvents();
-		MinecraftForge.EVENT_BUS.register(new InfoEventHandler());
+	
+	private void registerRender(Class<? extends GolemBase> clazz) {
+		if(GolemColorized.class.isAssignableFrom(clazz)) {
+			com.golems.proxies.ClientProxy.registerColorized((Class<? extends GolemColorized>)clazz);
+		} else {
+			com.golems.proxies.ClientProxy.registerTextured(clazz);
+		}
 	}
 }
