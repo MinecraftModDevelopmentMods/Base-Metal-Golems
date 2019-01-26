@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class EntityPlutoniumGolem extends MetalGolemTextured {
@@ -30,6 +31,7 @@ public class EntityPlutoniumGolem extends MetalGolemTextured {
 		this.poisonLen = getConfig(this).getInt(DURATION);
 		this.poisonAmp = getConfig(this).getInt(AMPLIFIER);
 		this.allowPoison = getConfig(this).getBoolean(ALLOW_POISON);
+		this.setLootTableLoc(InterModComm.PLUTONIUM);
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public class EntityPlutoniumGolem extends MetalGolemTextured {
 		super.onLivingUpdate();
 		if(allowPoison) {
 			PotionEffect POISON_EFFECT = new PotionEffect(MobEffects.POISON, poisonLen, poisonAmp);
-			List<Entity> entityList = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(poisonAOEFactor, poisonAOEFactor * 0.75D, poisonAOEFactor));
+			List<Entity> entityList = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(poisonAOEFactor, poisonAOEFactor * 0.75D, poisonAOEFactor));
 			for(Entity entity : entityList) {
 				if(entity instanceof EntityLivingBase && !(entity instanceof EntityPlutoniumGolem)) {
 					EntityLivingBase entityLiving = (EntityLivingBase)entity;
@@ -56,6 +58,15 @@ public class EntityPlutoniumGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, "plutonium");
+		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, InterModComm.PLUTONIUM);
+	}
+	
+	@Override
+	public List<String> addSpecialDesc(final List<String> list) { 
+		if(getConfig(this).getBoolean(EntityUraniumGolem.ALLOW_POISON)) {
+			String sPoison = TextFormatting.GREEN + trans("entitytip.poisons_mobs");
+			list.add(sPoison);
+		}
+		return list;
 	}
 }

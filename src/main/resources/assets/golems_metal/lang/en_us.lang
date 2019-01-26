@@ -1,4 +1,4 @@
-﻿# entity names
+﻿# BASE METALS entity names 
 entity.golems_metal.golem_adamantine.name=Adamantine Golem
 entity.golems_metal.golem_antimony.name=Antimony Golem
 entity.golems_metal.golem_aquarium.name=Aquarium Golem
@@ -21,9 +21,28 @@ entity.golems_metal.golem_steel.name=Steel Golem
 entity.golems_metal.golem_tin.name=Tin Golem
 entity.golems_metal.golem_zinc.name=Zinc Golem
 
-# tooltips
-tooltip.basemetals=Base Metals
-tooltip.all_base_metals=All base metal blocks
+# MODERN METALS entity names
+entity.golems_metal.golem_aluminum.name=Aluminum Golem
+entity.golems_metal.golem_aluminumbrass.name=Aluminum Brass Golem
+entity.golems_metal.golem_beryllium.name=Beryllium Golem
+entity.golems_metal.golem_boron.name=Boron Golem
+entity.golems_metal.golem_cadmium.name=Cadmium Golem
+entity.golems_metal.golem_chromium.name=Chromium Golem
+entity.golems_metal.golem_galvanizedsteel.name=Galvanized Steel Golem
+entity.golems_metal.golem_iridium.name=Iridium Golem
+entity.golems_metal.golem_magnesium.name=Magnesium Golem
+entity.golems_metal.golem_manganese.name=Manganse Golem
+entity.golems_metal.golem_nichrome.name=Nichrome Golem
+entity.golems_metal.golem_osmium.name=Osmium Golem
+entity.golems_metal.golem_plutonium.name=Plutonium Golem
+entity.golems_metal.golem_rutile.name=Rutile Golem
+entity.golems_metal.golem_stainlesssteel.name=Stainless Steel Golem
+entity.golems_metal.golem_tantalum.name=Tantalum Golem
+entity.golems_metal.golem_thorium.name=Thorium Golem
+entity.golems_metal.golem_titanium.name=Titanium Golem
+entity.golems_metal.golem_tungsten.name=Tungsten Golem
+entity.golems_metal.golem_uranium.name=Uranium Golem
+entity.golems_metal.golem_zirconium.name=Zirconium Golem
 
 # WAILA and TOP tips
 entitytip.damage_resist=Damage resistance
@@ -35,7 +54,6 @@ entitytip.fiery=fiery
 entitytip.magic_immunity=Immune to magic
 entitytip.fast=Fast!
 entitytip.heals=Slowly heals
-
-#Extra Golems fix
-entitytip.tile.stonebrick.name=Cobblestone
-entitytip.is_fireproof=Fireproof
+entitytip.light_fires=Lights fires
+entitytip.poisons_mobs=Poisons creatures
+entitytip.heavy=Heavy!

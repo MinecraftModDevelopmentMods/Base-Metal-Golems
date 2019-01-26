@@ -3,6 +3,7 @@ package com.golems_metal.entity.basemetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,7 +18,7 @@ public class EntityColdIronGolem extends MetalGolemColorized {
 	public EntityColdIronGolem(World world) {
 		super(world, 0xBDC4E5);
 		this.isImmuneToFire = true;
-		this.setLootTableLoc("golem_coldiron");
+		this.setLootTableLoc(MaterialNames.COLDIRON);
 	}
 	
 	@Override

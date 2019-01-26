@@ -14,15 +14,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /** NON-COLORIZED METAL GOLEM **/
 public abstract class MetalGolemTextured extends GolemBase {
-	
+		
 	public MetalGolemTextured(World world) {
 		super(world);
 		this.setCanSwim(false);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MetalGolemColorized.METAL_GOLEM_SPEED);
 	}
 	
+	/**
+	 * Makes a texture at {@code metal_golems:textures/entity/[modid]/golem_[name].png}
+	 * Used for organizing textures in this mod, since we support multiple mods
+	 **/
 	protected ResourceLocation makeModdedTexture(String modid, String name) {
-		return new ResourceLocation(modid + ":textures/entity/" + modid + "/golem_" + name + ".png");
+		return new ResourceLocation(MetalGolems.MODID + ":textures/entity/" + modid + "/golem_" + name + ".png");
 	}
 	
 	@Override
@@ -38,7 +42,7 @@ public abstract class MetalGolemTextured extends GolemBase {
 	}
 	
 	@Override
-	public void setLootTableLoc(final String name) {
-		this.lootTableLoc = new ResourceLocation(MetalGolems.MODID, "entities/" + name);
+	public void setLootTableLoc(final String material) {
+		this.lootTableLoc = new ResourceLocation(MetalGolems.MODID, "entities/golem_" + material);
 	}
 }

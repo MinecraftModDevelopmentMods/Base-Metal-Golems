@@ -4,10 +4,13 @@ import java.util.List;
 
 import com.golems_metal.entity.MetalGolemTextured;
 import com.golems_metal.init.InterModComm;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityWaterMob;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -19,7 +22,8 @@ public class EntityAquariumGolem extends MetalGolemTextured {
 
 	public EntityAquariumGolem(World world) {
 		super(world);
-		this.setLootTableLoc("golem_aquarium");
+		this.canDrown = false;
+		this.setLootTableLoc(MaterialNames.AQUARIUM);
 	}
 	
 	@Override
@@ -33,10 +37,23 @@ public class EntityAquariumGolem extends MetalGolemTextured {
 		}
 		return false;
 	}
+	
+	/**
+	 * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons use
+	 * this to react to sunlight and start to burn.
+	 */
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		// speed boost in water
+		if (this.isInWater()) {
+			this.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 2, false, false));
+		}
+	}
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_BASE_METALS, "aquarium");
+		return this.makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.AQUARIUM);
 	}
 
 	@Override
@@ -45,6 +62,7 @@ public class EntityAquariumGolem extends MetalGolemTextured {
 			String sDamage = TextFormatting.AQUA + trans("entitytip.extra_damage", trans("entitytip.aquatic"));
 			list.add(sDamage);
 		}
+    	list.add(TextFormatting.BLUE + trans("entitytip.breathes_underwater"));
     	return list;
     }
 }

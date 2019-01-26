@@ -10,10 +10,11 @@ public class EntityRutileGolem extends MetalGolemTextured {
 	
 	public EntityRutileGolem(World world) {
 		super(world);
+		this.setLootTableLoc(InterModComm.RUTILE);
 	}
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, "rutile");
+		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, InterModComm.RUTILE);
 	}
 }

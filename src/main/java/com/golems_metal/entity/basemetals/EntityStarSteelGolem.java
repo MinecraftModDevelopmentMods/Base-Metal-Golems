@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
 import com.golems_metal.entity.MetalGolemTextured;
+import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.MobEffects;
@@ -23,7 +25,7 @@ public class EntityStarSteelGolem extends MetalGolemTextured {
 		super(world);
 		this.stepHeight = 1.0F;
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MetalGolemColorized.METAL_GOLEM_SPEED + 0.06D);
-		this.setLootTableLoc("golem_starsteel");
+		this.setLootTableLoc(MaterialNames.STARSTEEL);
 	}
 
 	/**
@@ -50,7 +52,7 @@ public class EntityStarSteelGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return makeGolemTexture(MetalGolems.MODID, "starsteel");
+		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.STARSTEEL);
 	}
 
 	@Override

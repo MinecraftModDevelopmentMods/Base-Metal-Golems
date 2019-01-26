@@ -43,7 +43,7 @@ public abstract class MetalGolemColorized extends GolemColorized {
 	}
 
 	@Override
-	public void setLootTableLoc(final String name) {
-		this.lootTableLoc = new ResourceLocation(MetalGolems.MODID, "entities/" + name);
+	public void setLootTableLoc(final String material) {
+		this.lootTableLoc = new ResourceLocation(MetalGolems.MODID, "entities/golem_" + material);
 	}
 }

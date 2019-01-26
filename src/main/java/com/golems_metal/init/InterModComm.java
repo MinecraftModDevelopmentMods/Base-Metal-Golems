@@ -1,7 +1,6 @@
 package com.golems_metal.init;
 
 import com.mcmoddev.basemetals.BaseMetals;
-import com.mcmoddev.basemetals.data.MaterialNames;
 
 public class InterModComm {
 	
@@ -26,24 +25,7 @@ public class InterModComm {
 	public static final String TUNGSTEN = "tungsten";
 	public static final String URANIUM = "uranium";
 	public static final String ZIRCONIUM = "zirconium";
-	// TODO these next 3 need golems
 	public static final String BORON = "boron";
 	public static final String BERYLLIUM = "beryllium";
 	public static final String THORIUM = "thorium";
-	
-	public static final String[] BASE_METALS_ALL = new String[] {
-		MaterialNames.ADAMANTINE, MaterialNames.ANTIMONY, MaterialNames.AQUARIUM,
-		MaterialNames.BISMUTH, MaterialNames.BRASS, MaterialNames.BRONZE,
-		MaterialNames.COLDIRON, MaterialNames.COPPER, MaterialNames.CUPRONICKEL,
-		MaterialNames.ELECTRUM, MaterialNames.INVAR, MaterialNames.LEAD,
-		MaterialNames.MITHRIL, MaterialNames.NICKEL, MaterialNames.PEWTER,
-		MaterialNames.PLATINUM, MaterialNames.SILVER, MaterialNames.STARSTEEL,
-		MaterialNames.STEEL, MaterialNames.TIN, MaterialNames.ZINC
-	};
-	
-	public static final String[] MODERN_METALS_ALL = new String[] {
-		ALUMINUM, ALUMINUM_BRASS, CADMIUM, CHROMIUM, GALVANIZED_STEEL, IRIDIUM, MAGNESIUM,
-		MANGANESE, NICHROME, OSMIUM, PLUTONIUM, RUTILE, STAINLESS_STEEL, TANTALUM, TITANIUM,
-		TUNGSTEN, URANIUM, ZIRCONIUM/*, BORON, BERYLLIUM, THORIUM*/ // TODO
-	};
 }

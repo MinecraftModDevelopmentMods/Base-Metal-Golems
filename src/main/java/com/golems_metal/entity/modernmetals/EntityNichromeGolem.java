@@ -10,10 +10,11 @@ public class EntityNichromeGolem extends MetalGolemTextured {
 	
 	public EntityNichromeGolem(World world) {
 		super(world);
+		this.setLootTableLoc(InterModComm.NICHROME);
 	}
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, "nichrome");
+		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, InterModComm.NICHROME);
 	}
 }

@@ -3,7 +3,9 @@ package com.golems_metal.entity.basemetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemTextured;
+import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,14 +22,15 @@ public class EntityMithrilGolem extends MetalGolemTextured {
 
 	public EntityMithrilGolem(World world) {
 		super(world);
-		this.setLootTableLoc("golem_mithril");
+		this.setLootTableLoc(MaterialNames.MITHRIL);
 	}
 	
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		if(super.attackEntityAsMob(entity)) {
-			if(getConfig(this).getBoolean(DAMAGE_UNDEAD) && entity instanceof EntityLivingBase && ((EntityLivingBase)entity).getCreatureAttribute() == EnumCreatureAttribute.UNDEAD) {
-				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 0.5F;
+			if(getConfig(this).getBoolean(DAMAGE_UNDEAD) && entity instanceof EntityLivingBase 
+					&& ((EntityLivingBase)entity).getCreatureAttribute() == EnumCreatureAttribute.UNDEAD) {
+				float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() * 1.85F;
 				entity.attackEntityFrom(DamageSource.GENERIC, damage);
 			}
 			return true;
@@ -37,7 +40,7 @@ public class EntityMithrilGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return makeGolemTexture(MetalGolems.MODID, "mithril");
+		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.MITHRIL);
 	}
 	
 	@Override

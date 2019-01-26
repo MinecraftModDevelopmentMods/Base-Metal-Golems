@@ -10,10 +10,11 @@ public class EntityIridiumGolem extends MetalGolemTextured {
 	
 	public EntityIridiumGolem(World world) {
 		super(world);
+		this.setLootTableLoc(InterModComm.IRIDIUM);
 	}
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, "iridium");
+		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, InterModComm.IRIDIUM);
 	}
 }

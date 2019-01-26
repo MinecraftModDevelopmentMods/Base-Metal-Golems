@@ -3,6 +3,7 @@ package com.golems_metal.entity.basemetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,7 +19,7 @@ public class EntityAdamantineGolem extends MetalGolemColorized {
 	
 	public EntityAdamantineGolem(World world) {
 		super(world, 0x452F34, true);
-		this.setLootTableLoc("golem_adamantine");
+		this.setLootTableLoc(MaterialNames.ADAMANTINE);
 	}
 	
 	@Override

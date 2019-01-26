@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
 import com.golems_metal.entity.MetalGolemTextured;
+import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
+import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.DamageSource;
@@ -19,7 +21,7 @@ public class EntityElectrumGolem extends MetalGolemTextured {
 	public EntityElectrumGolem(World world) {
 		super(world);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(MetalGolemColorized.METAL_GOLEM_SPEED + 0.11D);
-		this.setLootTableLoc("golem_electrum");
+		this.setLootTableLoc(MaterialNames.ELECTRUM);
 	}
 	
 	@Override
@@ -29,7 +31,7 @@ public class EntityElectrumGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return makeGolemTexture(MetalGolems.MODID, "electrum");
+		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.ELECTRUM);
 	}
 	
 	@Override
