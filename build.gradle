@@ -20,7 +20,7 @@ javadoc {
 
 
 
-version = "7.1.0-alpha1"
+version = "7.1.1-alpha1"
 group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 minecraft {
@@ -52,7 +52,7 @@ repositories {
 }
 
 dependencies {
-    deobfCompile ("com.mcmoddev:ExtraGolems:1.12-7.0.0+") {
+    deobfCompile ("com.mcmoddev:ExtraGolems:1.12-7.1.1+") {
         exclude group: 'deobf.mezz.jei'
     }
     deobfCompile "com.mcmoddev:BaseMetals:1.12-2.5.0-beta+"
