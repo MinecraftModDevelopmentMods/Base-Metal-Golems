@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.golems.entity.ai.EntityAIPlaceRandomBlocksStrictly;
 import com.golems_metal.entity.MetalGolemColorized;
-import com.golems_metal.init.InterModComm;
+import com.golems_metal.entity.MetalGolemNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -22,12 +23,12 @@ public class EntityMagnesiumGolem extends MetalGolemColorized
 	public EntityMagnesiumGolem(World world) 
 	{
 		super(world, 0xBEBEBB);
-		this.setLootTableLoc(InterModComm.MAGNESIUM);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.MAGNESIUM_GOLEM);
 		int ticks = getConfig(this).getInt(FIRE_FREQ);
 		boolean allow = getConfig(this).getBoolean(ALLOW_PLACE_FIRE);
 		IBlockState[] fire = new IBlockState[] { Blocks.FIRE.getDefaultState() };
 		EntityAIBase aiPlaceFire = new com.golems.entity.ai.EntityAIPlaceRandomBlocks(this, ticks, fire, 
-				EntityAIPlaceRandomBlocksStrictly.getGriefingPredicate().and(EntityAIPlaceRandomBlocksStrictly.getPredicate(allow)));
+				EntityAIPlaceRandomBlocksStrictly.getGriefingPredicate().and(t -> allow));
 		this.tasks.addTask(2, aiPlaceFire);
 		if(allow) {
 			this.isImmuneToFire = true;

@@ -3,7 +3,8 @@ package com.golems_metal.entity.modernmetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
-import com.golems_metal.init.InterModComm;
+import com.golems_metal.entity.MetalGolemNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.text.TextFormatting;
@@ -13,7 +14,7 @@ public class EntityOsmiumGolem extends MetalGolemColorized {
 	
 	public EntityOsmiumGolem(World world) {
 		super(world, 0xBDC3C8);
-		this.setLootTableLoc(InterModComm.OSMIUM);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.OSMIUM_GOLEM);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.9999D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.12D);
 	}

@@ -3,7 +3,8 @@ package com.golems_metal.entity.modernmetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
-import com.golems_metal.init.InterModComm;
+import com.golems_metal.entity.MetalGolemNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
@@ -13,7 +14,7 @@ public class EntityTungstenGolem extends MetalGolemColorized {
 	
 	public EntityTungstenGolem(World world) {
 		super(world, 0xBABBBD);
-		this.setLootTableLoc(InterModComm.TUNGSTEN);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.TUNGSTEN_GOLEM);
 	}
 
 	@Override

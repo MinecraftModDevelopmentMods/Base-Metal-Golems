@@ -2,10 +2,10 @@ package com.golems_metal.entity.basemetals;
 
 import java.util.List;
 
+import com.golems_metal.entity.MetalGolemNames;
 import com.golems_metal.entity.MetalGolemTextured;
 import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
-import com.mcmoddev.basemetals.data.MaterialNames;
 
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ public class EntitySilverGolem extends MetalGolemTextured {
 	
 	public EntitySilverGolem(World world) {
 		super(world);
-		this.setLootTableLoc(MaterialNames.SILVER);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.SILVER_GOLEM);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class EntitySilverGolem extends MetalGolemTextured {
 	
 	@Override
 	protected ResourceLocation applyTexture() {
-		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.SILVER);
+		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MetalGolemNames.SILVER_GOLEM);
 	}
 	
 	@Override

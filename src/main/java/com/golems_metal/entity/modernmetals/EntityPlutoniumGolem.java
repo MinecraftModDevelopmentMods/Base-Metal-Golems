@@ -2,8 +2,10 @@ package com.golems_metal.entity.modernmetals;
 
 import java.util.List;
 
+import com.golems_metal.entity.MetalGolemNames;
 import com.golems_metal.entity.MetalGolemTextured;
 import com.golems_metal.init.InterModComm;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,7 +33,7 @@ public class EntityPlutoniumGolem extends MetalGolemTextured {
 		this.poisonLen = getConfig(this).getInt(DURATION);
 		this.poisonAmp = getConfig(this).getInt(AMPLIFIER);
 		this.allowPoison = getConfig(this).getBoolean(ALLOW_POISON);
-		this.setLootTableLoc(InterModComm.PLUTONIUM);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.PLUTONIUM_GOLEM);
 	}
 
 	@Override
@@ -58,7 +60,7 @@ public class EntityPlutoniumGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, InterModComm.PLUTONIUM);
+		return this.makeModdedTexture(InterModComm.MODID_MODERN_METALS, MetalGolemNames.PLUTONIUM_GOLEM);
 	}
 	
 	@Override

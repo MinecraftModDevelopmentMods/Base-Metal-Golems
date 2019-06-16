@@ -3,7 +3,8 @@ package com.golems_metal.entity.modernmetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
-import com.golems_metal.init.InterModComm;
+import com.golems_metal.entity.MetalGolemNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,7 +12,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.GuiScreenEvent.PotionShiftEvent;
 
 public class EntityThoriumGolem extends MetalGolemColorized {
 	
@@ -19,7 +19,7 @@ public class EntityThoriumGolem extends MetalGolemColorized {
 	
 	public EntityThoriumGolem(World world) {
 		super(world, 0x9ea2a2);
-		this.setLootTableLoc(InterModComm.THORIUM);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.THORIUM_GOLEM);
 	}
 	
 	@Override

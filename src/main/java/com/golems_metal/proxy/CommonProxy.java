@@ -1,53 +1,12 @@
 package com.golems_metal.proxy;
 
-import com.golems.entity.EntityCoalGolem;
 import com.golems.entity.GolemBase;
 import com.golems.util.GolemLookup;
-import com.golems_metal.entity.basemetals.EntityAdamantineGolem;
-import com.golems_metal.entity.basemetals.EntityAntimonyGolem;
-import com.golems_metal.entity.basemetals.EntityAquariumGolem;
-import com.golems_metal.entity.basemetals.EntityBismuthGolem;
-import com.golems_metal.entity.basemetals.EntityBrassGolem;
-import com.golems_metal.entity.basemetals.EntityBronzeGolem;
-import com.golems_metal.entity.basemetals.EntityColdIronGolem;
-import com.golems_metal.entity.basemetals.EntityCopperGolem;
-import com.golems_metal.entity.basemetals.EntityCupronickelGolem;
-import com.golems_metal.entity.basemetals.EntityElectrumGolem;
-import com.golems_metal.entity.basemetals.EntityInvarGolem;
-import com.golems_metal.entity.basemetals.EntityLeadGolem;
-import com.golems_metal.entity.basemetals.EntityMithrilGolem;
-import com.golems_metal.entity.basemetals.EntityNickelGolem;
-import com.golems_metal.entity.basemetals.EntityPewterGolem;
-import com.golems_metal.entity.basemetals.EntityPlatinumGolem;
-import com.golems_metal.entity.basemetals.EntitySilverGolem;
-import com.golems_metal.entity.basemetals.EntityStarSteelGolem;
-import com.golems_metal.entity.basemetals.EntitySteelGolem;
-import com.golems_metal.entity.basemetals.EntityTinGolem;
-import com.golems_metal.entity.basemetals.EntityZincGolem;
-import com.golems_metal.entity.modernmetals.EntityAluminumBrassGolem;
-import com.golems_metal.entity.modernmetals.EntityAluminumGolem;
-import com.golems_metal.entity.modernmetals.EntityBerylliumGolem;
-import com.golems_metal.entity.modernmetals.EntityBoronGolem;
-import com.golems_metal.entity.modernmetals.EntityCadmiumGolem;
-import com.golems_metal.entity.modernmetals.EntityChromiumGolem;
-import com.golems_metal.entity.modernmetals.EntityGalvSteelGolem;
-import com.golems_metal.entity.modernmetals.EntityIridiumGolem;
-import com.golems_metal.entity.modernmetals.EntityMagnesiumGolem;
-import com.golems_metal.entity.modernmetals.EntityManganeseGolem;
-import com.golems_metal.entity.modernmetals.EntityNichromeGolem;
-import com.golems_metal.entity.modernmetals.EntityOsmiumGolem;
-import com.golems_metal.entity.modernmetals.EntityPlutoniumGolem;
-import com.golems_metal.entity.modernmetals.EntityRutileGolem;
-import com.golems_metal.entity.modernmetals.EntityStainSteelGolem;
-import com.golems_metal.entity.modernmetals.EntityTantalumGolem;
-import com.golems_metal.entity.modernmetals.EntityThoriumGolem;
-import com.golems_metal.entity.modernmetals.EntityTitaniumGolem;
-import com.golems_metal.entity.modernmetals.EntityTungstenGolem;
-import com.golems_metal.entity.modernmetals.EntityUraniumGolem;
-import com.golems_metal.entity.modernmetals.EntityZirconiumGolem;
+import com.golems_metal.entity.basemetals.*;
+import com.golems_metal.entity.baseminerals.*;
+import com.golems_metal.entity.modernmetals.*;
 import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
-import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 import com.mcmoddev.lib.material.MMDMaterial;
@@ -59,40 +18,41 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 @Mod.EventBusSubscriber(modid = MetalGolems.MODID)
 public class CommonProxy {
-	
-	protected static int entityCount;
+
+	protected static int entityCount = 0;
 
 	public void preInitRenders() {
 		//
 	}
 	
-	public void registerEntities() {
-		entityCount = 0;
-		// BASE METAL GOLEMS
-		registerOptionally(EntityAdamantineGolem.class, MaterialNames.ADAMANTINE);
-		registerOptionally(EntityAntimonyGolem.class, MaterialNames.ANTIMONY);
-		registerOptionally(EntityAquariumGolem.class, MaterialNames.AQUARIUM);
-		registerOptionally(EntityBismuthGolem.class, MaterialNames.BISMUTH);
-		registerOptionally(EntityBrassGolem.class, MaterialNames.BRASS);
-		registerOptionally(EntityBronzeGolem.class, MaterialNames.BRONZE);
-		registerOptionally(EntityColdIronGolem.class, MaterialNames.COLDIRON);
-		registerOptionally(EntityCopperGolem.class, MaterialNames.COPPER);
-		registerOptionally(EntityCupronickelGolem.class, MaterialNames.CUPRONICKEL);
-		registerOptionally(EntityElectrumGolem.class, MaterialNames.ELECTRUM);
-		registerOptionally(EntityInvarGolem.class, MaterialNames.INVAR);
-		registerOptionally(EntityLeadGolem.class, MaterialNames.LEAD);
-		registerOptionally(EntityMithrilGolem.class, MaterialNames.MITHRIL);
-		registerOptionally(EntityNickelGolem.class, MaterialNames.NICKEL);
-		registerOptionally(EntityPewterGolem.class, MaterialNames.PEWTER);
-		registerOptionally(EntityPlatinumGolem.class, MaterialNames.PLATINUM);
-		registerOptionally(EntitySilverGolem.class, MaterialNames.SILVER);
-		registerOptionally(EntityStarSteelGolem.class, MaterialNames.STARSTEEL);
-		registerOptionally(EntitySteelGolem.class, MaterialNames.STEEL);
-		registerOptionally(EntityTinGolem.class, MaterialNames.TIN);
-		registerOptionally(EntityZincGolem.class, MaterialNames.ZINC);
-		
-		// MODERN METAL GOLEMS
-		if(MetalGolems.modernMetalsLoaded) {
+	public void registerBaseMetalEntities() {
+		if(MetalGolems.hasBaseMetals()) {
+			registerOptionally(EntityAdamantineGolem.class, InterModComm.ADAMANTINE);
+			registerOptionally(EntityAntimonyGolem.class, InterModComm.ANTIMONY);
+			registerOptionally(EntityAquariumGolem.class, InterModComm.AQUARIUM);
+			registerOptionally(EntityBismuthGolem.class, InterModComm.BISMUTH);
+			registerOptionally(EntityBrassGolem.class, InterModComm.BRASS);
+			registerOptionally(EntityBronzeGolem.class, InterModComm.BRONZE);
+			registerOptionally(EntityColdIronGolem.class, InterModComm.COLDIRON);
+			registerOptionally(EntityCopperGolem.class, InterModComm.COPPER);
+			registerOptionally(EntityCupronickelGolem.class, InterModComm.CUPRONICKEL);
+			registerOptionally(EntityElectrumGolem.class, InterModComm.ELECTRUM);
+			registerOptionally(EntityInvarGolem.class, InterModComm.INVAR);
+			registerOptionally(EntityLeadGolem.class, InterModComm.LEAD);
+			registerOptionally(EntityMithrilGolem.class, InterModComm.MITHRIL);
+			registerOptionally(EntityNickelGolem.class, InterModComm.NICKEL);
+			registerOptionally(EntityPewterGolem.class, InterModComm.PEWTER);
+			registerOptionally(EntityPlatinumGolem.class, InterModComm.PLATINUM);
+			registerOptionally(EntitySilverGolem.class, InterModComm.SILVER);
+			registerOptionally(EntityStarSteelGolem.class, InterModComm.STARSTEEL);
+			registerOptionally(EntitySteelGolem.class, InterModComm.STEEL);
+			registerOptionally(EntityTinGolem.class, InterModComm.TIN);
+			registerOptionally(EntityZincGolem.class, InterModComm.ZINC);
+		}
+	}
+
+	public void registerModernMetalEntities() {
+		if (MetalGolems.hasModernMetals()) {
 			registerOptionally(EntityAluminumGolem.class, InterModComm.ALUMINUM);
 			registerOptionally(EntityAluminumBrassGolem.class, InterModComm.ALUMINUM_BRASS);
 			registerOptionally(EntityBerylliumGolem.class, InterModComm.BERYLLIUM);
@@ -115,39 +75,47 @@ public class CommonProxy {
 			registerOptionally(EntityUraniumGolem.class, InterModComm.URANIUM);
 			registerOptionally(EntityZirconiumGolem.class, InterModComm.ZIRCONIUM);
 		}
-		
-		// add Charcoal as a material for Coal Block Golem
-		if(Materials.hasMaterial(MaterialNames.CHARCOAL) && Materials.getMaterialByName(MaterialNames.CHARCOAL).hasBlock(Names.BLOCK)) {
-			GolemLookup.addBlockAlias(Materials.getMaterialByName(MaterialNames.CHARCOAL).getBlock(Names.BLOCK), EntityCoalGolem.class);
-		}
 	}
 	
+	public void registerBaseMineralEntities() {
+		if(MetalGolems.hasBaseMinerals()) {
+			registerOptionally(EntityLithiumGolem.class, InterModComm.LITHIUM);
+			registerOptionally(EntityNiterGolem.class, InterModComm.NITER);
+			registerOptionally(EntityPhosphorusGolem.class, InterModComm.PHOSPHORUS);
+			registerOptionally(EntityPotashGolem.class, InterModComm.POTASH);
+			registerOptionally(EntitySaltGolem.class, InterModComm.SALT);
+			registerOptionally(EntitySaltpeterGolem.class, InterModComm.SALTPETER);
+			registerOptionally(EntitySiliconGolem.class, InterModComm.SILICON);
+			registerOptionally(EntitySulfurGolem.class, InterModComm.SULFUR);
+		}
+	}
+
 	protected static void registerOptionally(final Class<? extends GolemBase> entityClass, final String material) {
-		if(Materials.hasMaterial(material) && Materials.getMaterialByName(material).hasBlock(Names.BLOCK)) {
+		if (Materials.hasMaterial(material) && Materials.getMaterialByName(material).hasBlock(Names.BLOCK)) {
 			register(entityClass, "golem_" + material, Materials.getMaterialByName(material), true);
 		}
 	}
-	
+
 	/** registers the entity with an optional loot table. **/
-	protected static void register(final Class<? extends GolemBase> entityClass, final String name, final MMDMaterial material, final boolean registerLootTable) {
+	protected static void register(final Class<? extends GolemBase> entityClass, final String name,
+			final MMDMaterial material, final boolean registerLootTable) {
 		// register the entity with Forge
-		EntityRegistry.registerModEntity(
-				new ResourceLocation(MetalGolems.MODID, name), entityClass, 
-				MetalGolems.MODID + "." + name, ++entityCount,
-				MetalGolems.instance, 16 * 4, 3, true);
+		EntityRegistry.registerModEntity(new ResourceLocation(MetalGolems.MODID, name), entityClass,
+				MetalGolems.MODID + "." + name, ++entityCount, MetalGolems.instance, 16 * 4, 3, true);
 		// register building block
 		GolemLookup.addGolem(entityClass, material.getBlock(Names.BLOCK));
 		// register loot table
-		if(registerLootTable) {
+		if (registerLootTable) {
 			registerLootTable(name);
 		}
 	}
-	
+
 	/** registers the entity with a loot table. **/
-	protected static void register(final Class<? extends GolemBase> entityClass, final String name, final MMDMaterial material) {
+	protected static void register(final Class<? extends GolemBase> entityClass, final String name,
+			final MMDMaterial material) {
 		register(entityClass, name, material, true);
 	}
-	
+
 	protected static void registerLootTable(final String name) {
 		LootTableList.register(new ResourceLocation(MetalGolems.MODID, "entities/" + name));
 	}

@@ -3,7 +3,7 @@
   "modid": "golems_metal",
   "name": "Base Metal Golems",
   "description": "Adds Extra Golems made from Base Metals materials",
-  "version": "7.1.1-1",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
@@ -11,8 +11,8 @@
   "credits": "Textures made with Gimp 2.8",
   "logoFile": "",
   "screenshots": [],
-  "requiredMods": [ "forge", "golems", "basemetals"],
-  "dependencies": [ "forge", "golems", "basemetals", "modernmetals" ],
+  "requiredMods": [ "forge", "golems", "mmdlib"],
+  "dependencies": [ "forge", "golems", "mmdlib", "basemetals", "modernmetals", "baseminerals" ],
   "useDependencyInformation": true
 }
 ]

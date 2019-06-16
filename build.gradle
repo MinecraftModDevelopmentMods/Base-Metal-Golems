@@ -18,13 +18,11 @@ javadoc {
     failOnError = false
 }
 
-
-
-version = "7.1.1-1"
-group= "com.golems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "7.1.5-1"
+group= "com.mcmoddev.golems_metal" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 minecraft {
-    version = "1.12.2-14.23.4.2705"
+    version = "1.12.2-${forge_version}"
     runDir = "run"
 
     mappings = "stable_39"
@@ -32,34 +30,55 @@ minecraft {
 }
 
 repositories {
-    mavenCentral()
-    maven { url = "https://maven.mcmoddev.com/" }
-    maven { // TOP
-        name 'tterrag maven'
-        url "https://maven.tterrag.com/"
-    }
-    maven { // HWYLA
-        name 'tehnut'
-        url 'http://tehnut.info/maven/'
-    }
-	maven { url = "http://dvs1.progwml6.com/files/maven" }
-	maven { url = "http://chickenbones.net/maven/" }
-    maven { // CoFH
-        name 'Covers Maven'
-        url 'http://maven.covers1624.net/'
-    }
-
+  //mavenCentral()
+  maven { // JEI
+    name 'DVS1 Maven FS'
+    url 'http://dvs1.progwml6.com/files/maven/'
+  }
+  maven { // The One Probe
+    name 'tterrag'
+    url 'http://maven.tterrag.com/'
+  }
+  maven {
+    name 'MMD'
+    url 'https://maven.mcmoddev.com/'
+  }
+  maven { // HWYLA
+    name 'tehnut'
+    url 'http://tehnut.info/maven/'
+  }
+  maven { // CoFH
+    name 'Covers Maven'
+    url 'http://maven.covers1624.net/'
+  }
 }
 
 dependencies {
-    deobfCompile ("com.mcmoddev:ExtraGolems:1.12-7.1.1+") {
-        exclude group: 'deobf.mezz.jei'
+	//runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    deobfCompile ("com.mcmoddev:ExtraGolems:1.12-${golems_version}+") {
+		exclude group: 'deobf.mcjty.theoneprobe'
+		exclude group: 'deobf.mcp.mobius.waila'
+		exclude group: 'deobf.cofh'
+		exclude group: 'mezz.jei'
+	}
+    deobfCompile ("com.mcmoddev:MMDLib:1.12-${mmd_version}") {
+		exclude group: 'mezz.jei'
     }
-    deobfCompile ("com.mcmoddev:BaseMetals:1.12-2.5.0-beta+") {
-        exclude group: 'deobf.mezz.jei'
+	deobfCompile ("com.mcmoddev:BaseMetals:1.12-${base_metals_version}") {
+        exclude group: 'mezz.jei'
     }
-
-
+	deobfCompile ("com.mcmoddev:ModernMetals:1.12-${modern_metals_version}") {
+        exclude group: 'mezz.jei'
+    }
+	deobfCompile ("com.mcmoddev:BaseMinerals:1.12-${base_minerals_version}") {
+        exclude group: 'mezz.jei'
+    }
+	
+	//runtime "mcjty.theoneprobe:TheOneProbe-${mc_version}:${mc_version}-${top_version}:api"
+	deobfCompile ("mcp.mobius.waila:Hwyla:${hwyla_version}") {
+		exclude group: 'mezz.jei'
+    }
+	
 }
 
 processResources {

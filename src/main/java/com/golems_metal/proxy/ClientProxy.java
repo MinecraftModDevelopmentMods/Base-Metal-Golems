@@ -4,9 +4,9 @@ import com.golems.entity.GolemBase;
 import com.golems.entity.GolemColorized;
 import com.golems_metal.entity.basemetals.*;
 import com.golems_metal.entity.modernmetals.*;
+import com.golems_metal.entity.baseminerals.*;
 import com.golems_metal.init.InterModComm;
 import com.golems_metal.init.MetalGolems;
-import com.mcmoddev.basemetals.data.MaterialNames;
 import com.mcmoddev.lib.data.Names;
 import com.mcmoddev.lib.init.Materials;
 
@@ -15,30 +15,32 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInitRenders() {
 		// BASE METALS - register golem rendering classes
-		registerRenderOptionally(EntityAdamantineGolem.class, MaterialNames.ADAMANTINE);
-		registerRenderOptionally(EntityAntimonyGolem.class, MaterialNames.ANTIMONY);
-		registerRenderOptionally(EntityBismuthGolem.class, MaterialNames.BISMUTH);
-		registerRenderOptionally(EntityAquariumGolem.class, MaterialNames.AQUARIUM);
-		registerRenderOptionally(EntityBrassGolem.class, MaterialNames.BRASS);
-		registerRenderOptionally(EntityBronzeGolem.class, MaterialNames.BRONZE);
-		registerRenderOptionally(EntityColdIronGolem.class, MaterialNames.COLDIRON);
-		registerRenderOptionally(EntityCopperGolem.class, MaterialNames.COPPER);
-		registerRenderOptionally(EntityCupronickelGolem.class, MaterialNames.CUPRONICKEL);
-		registerRenderOptionally(EntityElectrumGolem.class, MaterialNames.ELECTRUM);
-		registerRenderOptionally(EntityInvarGolem.class, MaterialNames.INVAR);
-		registerRenderOptionally(EntityLeadGolem.class, MaterialNames.LEAD);
-		registerRenderOptionally(EntityMithrilGolem.class, MaterialNames.MITHRIL);
-		registerRenderOptionally(EntityNickelGolem.class, MaterialNames.NICKEL);
-		registerRenderOptionally(EntityPewterGolem.class, MaterialNames.PEWTER);
-		registerRenderOptionally(EntityPlatinumGolem.class, MaterialNames.PLATINUM);
-		registerRenderOptionally(EntitySilverGolem.class, MaterialNames.SILVER);
-		registerRenderOptionally(EntityStarSteelGolem.class, MaterialNames.STARSTEEL);
-		registerRenderOptionally(EntitySteelGolem.class, MaterialNames.STEEL);
-		registerRenderOptionally(EntityTinGolem.class, MaterialNames.TIN);
-		registerRenderOptionally(EntityZincGolem.class, MaterialNames.ZINC);
+		if (MetalGolems.hasBaseMetals()) {
+			registerRenderOptionally(EntityAdamantineGolem.class, InterModComm.ADAMANTINE);
+			registerRenderOptionally(EntityAntimonyGolem.class, InterModComm.ANTIMONY);
+			registerRenderOptionally(EntityBismuthGolem.class, InterModComm.BISMUTH);
+			registerRenderOptionally(EntityAquariumGolem.class, InterModComm.AQUARIUM);
+			registerRenderOptionally(EntityBrassGolem.class, InterModComm.BRASS);
+			registerRenderOptionally(EntityBronzeGolem.class, InterModComm.BRONZE);
+			registerRenderOptionally(EntityColdIronGolem.class, InterModComm.COLDIRON);
+			registerRenderOptionally(EntityCopperGolem.class, InterModComm.COPPER);
+			registerRenderOptionally(EntityCupronickelGolem.class, InterModComm.CUPRONICKEL);
+			registerRenderOptionally(EntityElectrumGolem.class, InterModComm.ELECTRUM);
+			registerRenderOptionally(EntityInvarGolem.class, InterModComm.INVAR);
+			registerRenderOptionally(EntityLeadGolem.class, InterModComm.LEAD);
+			registerRenderOptionally(EntityMithrilGolem.class, InterModComm.MITHRIL);
+			registerRenderOptionally(EntityNickelGolem.class, InterModComm.NICKEL);
+			registerRenderOptionally(EntityPewterGolem.class, InterModComm.PEWTER);
+			registerRenderOptionally(EntityPlatinumGolem.class, InterModComm.PLATINUM);
+			registerRenderOptionally(EntitySilverGolem.class, InterModComm.SILVER);
+			registerRenderOptionally(EntityStarSteelGolem.class, InterModComm.STARSTEEL);
+			registerRenderOptionally(EntitySteelGolem.class, InterModComm.STEEL);
+			registerRenderOptionally(EntityTinGolem.class, InterModComm.TIN);
+			registerRenderOptionally(EntityZincGolem.class, InterModComm.ZINC);
+		}
 		
 		// MODERN METALS - register golem render classes
-		if(MetalGolems.modernMetalsLoaded) {
+		if(MetalGolems.hasModernMetals()) {
 			registerRenderOptionally(EntityAluminumGolem.class, InterModComm.ALUMINUM);
 			registerRenderOptionally(EntityAluminumBrassGolem.class, InterModComm.ALUMINUM_BRASS);
 			registerRenderOptionally(EntityBerylliumGolem.class, InterModComm.BERYLLIUM);
@@ -62,6 +64,17 @@ public class ClientProxy extends CommonProxy {
 			registerRenderOptionally(EntityZirconiumGolem.class, InterModComm.ZIRCONIUM);
 		}
 		
+		// BASE MINERALS - register golem render classes
+		if(MetalGolems.hasBaseMinerals()) {
+			registerRenderOptionally(EntityLithiumGolem.class, InterModComm.LITHIUM);
+			registerRenderOptionally(EntityNiterGolem.class, InterModComm.NITER);
+			registerRenderOptionally(EntityPhosphorusGolem.class, InterModComm.PHOSPHORUS);
+			registerRenderOptionally(EntityPotashGolem.class, InterModComm.POTASH);
+			registerRenderOptionally(EntitySaltGolem.class, InterModComm.SALT);
+			registerRenderOptionally(EntitySaltpeterGolem.class, InterModComm.SALTPETER);
+			registerRenderOptionally(EntitySiliconGolem.class, InterModComm.SILICON);
+			registerRenderOptionally(EntitySulfurGolem.class, InterModComm.SULFUR);
+		}
 	}
 	
 	private static void registerRenderOptionally(Class<? extends GolemBase> clazz, final String material) {

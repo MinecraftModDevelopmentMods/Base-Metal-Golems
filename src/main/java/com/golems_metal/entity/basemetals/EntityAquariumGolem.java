@@ -2,9 +2,10 @@ package com.golems_metal.entity.basemetals;
 
 import java.util.List;
 
+import com.golems_metal.entity.MetalGolemNames;
 import com.golems_metal.entity.MetalGolemTextured;
 import com.golems_metal.init.InterModComm;
-import com.mcmoddev.basemetals.data.MaterialNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,7 +24,7 @@ public class EntityAquariumGolem extends MetalGolemTextured {
 	public EntityAquariumGolem(World world) {
 		super(world);
 		this.canDrown = false;
-		this.setLootTableLoc(MaterialNames.AQUARIUM);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.AQUARIUM_GOLEM);
 	}
 	
 	@Override
@@ -53,7 +54,7 @@ public class EntityAquariumGolem extends MetalGolemTextured {
 
 	@Override
 	protected ResourceLocation applyTexture() {
-		return this.makeModdedTexture(InterModComm.MODID_BASE_METALS, MaterialNames.AQUARIUM);
+		return makeModdedTexture(InterModComm.MODID_BASE_METALS, MetalGolemNames.AQUARIUM_GOLEM);
 	}
 
 	@Override

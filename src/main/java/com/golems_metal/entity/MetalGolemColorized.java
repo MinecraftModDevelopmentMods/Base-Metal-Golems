@@ -16,9 +16,9 @@ public abstract class MetalGolemColorized extends GolemColorized {
 	
 	public static final double METAL_GOLEM_SPEED = 0.20D;
 	
-	private static final ResourceLocation TEXTURE_BASE = makeGolemTexture(MetalGolems.MODID, "metal");
-	private static final ResourceLocation TEXTURE_OVERLAY_LOW = makeGolemTexture(MetalGolems.MODID, "metal_grayscale_low");
-	private static final ResourceLocation TEXTURE_OVERLAY_HIGH = makeGolemTexture(MetalGolems.MODID, "metal_grayscale_high");
+	private static final ResourceLocation TEXTURE_BASE = makeTexture(MetalGolems.MODID, "golem_metal");
+	private static final ResourceLocation TEXTURE_OVERLAY_LOW = makeTexture(MetalGolems.MODID, "golem_metal_grayscale_low");
+	private static final ResourceLocation TEXTURE_OVERLAY_HIGH = makeTexture(MetalGolems.MODID, "golem_metal_grayscale_high");
 
 	public MetalGolemColorized(World world, long color, boolean isHighContrast) {
 		super(world, color, TEXTURE_BASE, (isHighContrast ? TEXTURE_OVERLAY_HIGH : TEXTURE_OVERLAY_LOW));
@@ -40,10 +40,5 @@ public abstract class MetalGolemColorized extends GolemColorized {
 	@Override
 	public SoundEvent getGolemSound() {
 		return SoundEvents.BLOCK_METAL_STEP;
-	}
-
-	@Override
-	public void setLootTableLoc(final String material) {
-		this.lootTableLoc = new ResourceLocation(MetalGolems.MODID, "entities/golem_" + material);
 	}
 }

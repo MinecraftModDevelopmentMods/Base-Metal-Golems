@@ -1,6 +1,13 @@
 package com.golems_metal.init;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.golems.entity.EntityCoalGolem;
+import com.golems.util.GolemLookup;
 import com.golems_metal.proxy.CommonProxy;
+import com.mcmoddev.lib.data.Names;
+import com.mcmoddev.lib.init.Materials;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
@@ -15,9 +22,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class MetalGolems {
 	
 	public static final String MODID = "golems_metal";
-	public static final String DEPENDENCIES = "required-after:golems@[7.1.1,);required-after:basemetals@[2.5.0,);after:modernmetals@[2.5.0,);required-after:forge@[14.23.4.2705,";
+	public static final String DEPENDENCIES = "required:forge@[14.23.4.2768,);required-after:golems@[7.1.5,);required-after:mmdlib@[1.0.0-rc2.36,)";
 	public static final String NAME = "Base Metal Golems";
-	public static final String VERSION = "7.1.1-1";
+	public static final String VERSION = "7.1.5-1";
 	public static final String MCVERSION = "1.12.2";
 	
 	@Mod.Instance(MetalGolems.MODID)
@@ -25,24 +32,57 @@ public class MetalGolems {
 	
 	@SidedProxy(clientSide = "com." + MODID + ".proxy.ClientProxy", serverSide = "com." + MODID + ".proxy.CommonProxy")
 	public static CommonProxy proxy;
+	
+	public static final Logger LOGGER = LogManager.getFormatterLogger(MODID);
 
-	public static boolean modernMetalsLoaded;
+	private static boolean baseMetalsLoaded;
+	private static boolean modernMetalsLoaded;
+	private static boolean baseMineralsLoaded;
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		baseMetalsLoaded = Loader.isModLoaded(InterModComm.MODID_BASE_METALS);
 		modernMetalsLoaded = Loader.isModLoaded(InterModComm.MODID_MODERN_METALS);
-		if(modernMetalsLoaded) {
-			System.out.println("Modern Metals detected. Loading golems for Modern Metals...");
-		} else {
-			System.out.println("Modern Metals not detected. Skipping golems for Modern Metals...");
-		}
+		baseMineralsLoaded = Loader.isModLoaded(InterModComm.MODID_BASE_MINERALS);
+		
 		MetalConfig.mainRegistry(new Configuration(event.getSuggestedConfigurationFile()));
 		proxy.preInitRenders();
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		proxy.registerEntities();
+		// information about installed mods
+		logModsLoaded("Base Metals", baseMetalsLoaded);
+		proxy.registerBaseMetalEntities();
+		logModsLoaded("Modern Metals", modernMetalsLoaded);
+		proxy.registerModernMetalEntities();
+		logModsLoaded("Base Minerals", baseMineralsLoaded);
+		proxy.registerBaseMineralEntities();
+		
+		// add Charcoal as a material for Coal Block Golem
+		if(Materials.hasMaterial(InterModComm.CHARCOAL) && Materials.getMaterialByName(InterModComm.CHARCOAL).hasBlock(Names.BLOCK)) {
+			GolemLookup.addBlockAlias(Materials.getMaterialByName(InterModComm.CHARCOAL).getBlock(Names.BLOCK), EntityCoalGolem.class);
+		}
+	}
+	
+	public static boolean hasBaseMetals() {
+		return baseMetalsLoaded;
+	}
+	
+	public static boolean hasModernMetals() {
+		return modernMetalsLoaded;
+	}
+	
+	public static boolean hasBaseMinerals() {
+		return baseMineralsLoaded;
+	}
+	
+	private static void logModsLoaded(final String modName, final boolean isLoaded) {
+		if(isLoaded) {
+			LOGGER.info(modName + " detected. Loading golems for " + modName + "...");
+		} else {
+			LOGGER.info(modName + " not detected. Skipping golems for " + modName + "...");
+		}
 	}
 }
 

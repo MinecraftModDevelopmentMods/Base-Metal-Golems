@@ -3,7 +3,8 @@ package com.golems_metal.entity.basemetals;
 import java.util.List;
 
 import com.golems_metal.entity.MetalGolemColorized;
-import com.mcmoddev.basemetals.data.MaterialNames;
+import com.golems_metal.entity.MetalGolemNames;
+import com.golems_metal.init.MetalGolems;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +20,7 @@ public class EntityLeadGolem extends MetalGolemColorized {
 		super(world, 0x6E6E6E, true);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.9999D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.14D);
-		this.setLootTableLoc(MaterialNames.LEAD);
+		this.setLootTableLoc(MetalGolems.MODID, MetalGolemNames.LEAD_GOLEM);
 	}
 	
 	@Override
